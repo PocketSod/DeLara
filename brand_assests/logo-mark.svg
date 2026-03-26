@@ -1,0 +1,11 @@
+<svg width="68" height="88" viewBox="0 0 68 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Spine -->
+  <rect x="4" y="4" width="9" height="80" rx="1.5" fill="#C85C2A"/>
+  <!-- Bowl arc -->
+  <path d="M13 4 Q64 4 64 44 Q64 84 13 84" stroke="#C85C2A" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Gold accent dots at junctions -->
+  <circle cx="8.5" cy="4"  r="5.5" fill="#C9993A"/>
+  <circle cx="8.5" cy="84" r="5.5" fill="#C9993A"/>
+  <!-- Inner gold flourish -->
+  <ellipse cx="52" cy="44" rx="4" ry="8" fill="#C9993A" opacity="0.55" transform="rotate(-15 52 44)"/>
+</svg>
