@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DeLara Consulting, LLC. — Possibility Begins Here.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:    #080808;
+  --black-2:  #0E0E0E;
+  --black-3:  #141414;
+  --black-4:  #1C1C1C;
+  --gold:     #C9A358;
+  --gold-b:   #E8C97A;
+  --cyan:     #00D2FF;
+  --green:    #00E855;
+  --magenta:  #FF2EC4;
+  --white:    #FFFFFF;
+  --off:      #D4CAB8;
+  --muted:    rgba(212,202,184,0.5);
+  --muted-2:  rgba(212,202,184,0.28);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s ease, padding 0.4s ease;
+}
+
+nav.scrolled {
+  background: rgba(8,8,8,0.97);
+  backdrop-filter: blur(16px);
+  padding: 14px 64px;
+  border-bottom: 1px solid rgba(201,163,88,0.1);
+}
+
+.nav-logo img { height: 44px; width: auto; object-fit: contain; }
+.nav-logo { text-decoration: none; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.nav-links a:hover { color: var(--white); }
+
+.page-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,163,88,0.2);
+  border-radius: 4px;
+  padding: 3px;
+}
+.toggle-btn {
+  width: 30px; height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.toggle-btn:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+.toggle-btn.active { background: var(--gold); color: var(--black); }
+
+.nav-cta {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  padding: 11px 24px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+.nav-cta:hover { background: var(--gold-b); transform: translateY(-1px); }
+.nav-cta:active { transform: translateY(0); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  background: var(--black);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 64px 100px;
+  overflow: hidden;
+}
+
+/* grid lines background */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,163,88,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,163,88,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+.hero-glow {
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,210,255,0.06) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.hero-glow-gold {
+  position: absolute;
+  width: 500px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(201,163,88,0.07) 0%, transparent 70%);
+  bottom: 10%; left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--cyan);
+  opacity: 0.4;
+}
+
+.hero-headline {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(52px, 8vw, 130px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: var(--white);
+  position: relative;
+  z-index: 2;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(28px);
+  animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.35s forwards;
+}
+
+.hero-headline .line-gold { color: var(--gold); }
+.hero-headline .line-outline {
+  -webkit-text-stroke: 1.5px rgba(255,255,255,0.25);
+  color: transparent;
+}
+
+.hero-logo-center {
+  position: relative;
+  z-index: 2;
+  margin: 48px 0 40px;
+  opacity: 0;
+  animation: fadeIn 1s ease 0.6s forwards;
+}
+.hero-logo-center img {
+  height: 160px;
+  width: auto;
+  filter: drop-shadow(0 0 60px rgba(0,210,255,0.15)) drop-shadow(0 20px 60px rgba(0,0,0,0.8));
+  mask-image: radial-gradient(ellipse 90% 85% at 50% 50%, black 50%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 50%, black 50%, transparent 100%);
+}
+
+.hero-sub {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 520px;
+  margin: 0 auto 52px;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.55s forwards;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.7s forwards;
+}
+
+.btn-primary {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  padding: 16px 40px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+.btn-primary:hover {
+  background: var(--gold-b);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(201,163,88,0.35);
+}
+
+.btn-ghost {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 16px 24px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 2px;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+.btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+
+/* ─── NEON TICKER ─── */
+.ticker {
+  background: var(--black-3);
+  border-top: 1px solid rgba(201,163,88,0.1);
+  border-bottom: 1px solid rgba(201,163,88,0.1);
+  padding: 20px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker-inner {
+  display: inline-flex;
+  gap: 0;
+  animation: ticker 24s linear infinite;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+  padding: 0 40px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+.ticker-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.ticker-dot.cyan { background: var(--cyan); }
+.ticker-dot.green { background: var(--green); }
+.ticker-dot.magenta { background: var(--magenta); }
+.ticker-dot.gold { background: var(--gold); }
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ─── SERVICES ─── */
+.services {
+  padding: 120px 64px;
+  background: var(--black-2);
+}
+
+.services-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 80px;
+  gap: 60px;
+}
+
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(36px, 4vw, 64px);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+.section-title em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.services-note {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 320px;
+  text-align: right;
+  align-self: flex-end;
+  padding-bottom: 6px;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba(255,255,255,0.05);
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr auto;
+  gap: 40px;
+  align-items: center;
+  padding: 36px 48px;
+  background: var(--black-2);
+  transition: background 0.25s ease;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-row::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0;
+  background: linear-gradient(90deg, rgba(0,210,255,0.06), transparent);
+  transition: width 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.service-row:hover { background: var(--black-3); }
+.service-row:hover::before { width: 100%; }
+
+.service-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.12);
+  letter-spacing: 0.05em;
+}
+
+.service-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+.service-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.service-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.tag-cyan { color: var(--cyan); border: 1px solid rgba(0,210,255,0.3); }
+.tag-green { color: var(--green); border: 1px solid rgba(0,232,85,0.3); }
+.tag-magenta { color: var(--magenta); border: 1px solid rgba(255,46,196,0.3); }
+.tag-gold { color: var(--gold); border: 1px solid rgba(201,163,88,0.3); }
+
+/* ─── ABOUT ─── */
+.about {
+  padding: 120px 64px;
+  background: var(--black);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-left img {
+  width: 100%;
+  border-radius: 8px;
+  filter: brightness(0.85) contrast(1.05) drop-shadow(0 24px 80px rgba(0,0,0,0.8));
+  mask-image: radial-gradient(ellipse 92% 90% at 50% 50%, black 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 92% 90% at 50% 50%, black 55%, transparent 100%);
+}
+
+.about-right { padding: 20px 0; }
+
+.about-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.about-eyebrow::before {
+  content: '';
+  width: 20px; height: 1px;
+  background: var(--magenta);
+  opacity: 0.5;
+}
+
+.about-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(32px, 3.5vw, 54px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 28px;
+}
+.about-title span { color: var(--gold); }
+
+.about-body {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--muted);
+  margin-bottom: 48px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.value-pill {
+  padding: 20px 24px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
+  background: var(--black-3);
+  transition: border-color 0.25s ease;
+}
+.value-pill:hover { border-color: rgba(0,210,255,0.2); }
+
+.value-pill-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.value-pill-desc {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ─── PROCESS ─── */
+.process {
+  padding: 120px 64px;
+  background: var(--black-3);
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.process-header .section-eyebrow {
+  justify-content: center;
+  display: flex;
+}
+.process-header .section-title {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.process-track {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  position: relative;
+}
+
+.process-track::before {
+  content: '';
+  position: absolute;
+  top: 30px; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cyan), var(--green), var(--magenta));
+  opacity: 0.2;
+}
+
+.process-step {
+  padding: 0 32px;
+  text-align: center;
+}
+
+.step-badge {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  transition: transform 0.3s ease;
+}
+.process-step:hover .step-badge { transform: scale(1.1); }
+
+.badge-1 { background: rgba(0,210,255,0.12); color: var(--cyan); border: 1px solid rgba(0,210,255,0.25); }
+.badge-2 { background: rgba(0,232,85,0.12); color: var(--green); border: 1px solid rgba(0,232,85,0.25); }
+.badge-3 { background: rgba(255,46,196,0.12); color: var(--magenta); border: 1px solid rgba(255,46,196,0.25); }
+.badge-4 { background: rgba(201,163,88,0.12); color: var(--gold); border: 1px solid rgba(201,163,88,0.25); }
+
+.step-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.step-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* ─── TESTIMONIALS ─── */
+.testimonials {
+  padding: 120px 64px;
+  background: var(--black);
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+.testimonial-card {
+  padding: 44px 36px;
+  background: var(--black-3);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.testimonial-card:hover { transform: translateY(-4px); }
+
+.t-accent {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.t-accent-cyan { background: var(--cyan); }
+.t-accent-green { background: var(--green); }
+.t-accent-magenta { background: var(--magenta); }
+
+.quote-mark {
+  font-family: 'Inter', sans-serif;
+  font-size: 64px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.06);
+  line-height: 0.8;
+  margin-bottom: 24px;
+}
+
+.testimonial-text {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.testimonial-author {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.testimonial-role {
+  font-size: 11px;
+  color: var(--muted-2);
+  letter-spacing: 0.06em;
+}
+
+/* ─── CTA ─── */
+.cta-section {
+  padding: 120px 64px;
+  background: var(--black-2);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,210,255,0.05) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.cta-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.cta-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(40px, 5.5vw, 88px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: var(--white);
+  margin-bottom: 24px;
+  position: relative;
+}
+.cta-title span { color: var(--gold); }
+
+.cta-sub {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 440px;
+  margin: 0 auto 56px;
+  position: relative;
+}
+
+.cta-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+}
+
+.btn-cta {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  padding: 16px 44px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+.btn-cta:hover {
+  background: var(--gold-b);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(201,163,88,0.3);
+}
+
+.btn-cta-outline {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 15px 44px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 2px;
+  transition: border-color 0.25s ease;
+}
+.btn-cta-outline:hover { border-color: rgba(255,255,255,0.4); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--black);
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding: 72px 64px 60px;
+}
+
+.footer-logo img { height: 40px; width: auto; margin-bottom: 20px; }
+
+.footer-brand-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted-2);
+  max-width: 280px;
+}
+
+.footer-col-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-links a {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muted-2);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-links a:hover { color: var(--gold); }
+
+.footer-bottom {
+  padding: 24px 64px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copy { font-size: 12px; font-weight: 300; color: var(--muted-2); }
+
+.footer-legal { list-style: none; display: flex; gap: 28px; }
+.footer-legal a {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muted-2);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-legal a:hover { color: var(--gold); }
+
+/* ─── REVEAL ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { to { opacity: 1; } }
+
+a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <img src="brand_assests/logo1.png" alt="DeLara Consulting LLC"/>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#testimonials">Clients</a></li>
+  </ul>
+  <div class="page-toggle">
+    <a href="index.html" class="toggle-btn">1</a>
+    <a href="landing-2.html" class="toggle-btn">2</a>
+    <a href="landing-3.html" class="toggle-btn active">3</a>
+  </div>
+  <a href="#contact" class="nav-cta">Get in Touch</a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-gold"></div>
+
+  <div class="hero-eyebrow">DeLara Consulting, LLC. — Strategic Advisory</div>
+
+  <h1 class="hero-headline">
+    <span class="line-outline">Possibility</span><br>
+    <span class="line-gold">Begins</span><br>
+    Here.
+  </h1>
+
+  <div class="hero-logo-center">
+    <img src="brand_assests/logo1.png" alt="DeLara Consulting"/>
+  </div>
+
+  <p class="hero-sub">We partner with ambitious organizations to transform complexity into clarity — delivering strategies that endure and results that matter.</p>
+
+  <div class="hero-actions">
+    <a href="#services" class="btn-primary">Explore Our Work →</a>
+    <a href="#contact" class="btn-ghost">Schedule a Call</a>
+  </div>
+</section>
+
+<!-- ─── TICKER ─── -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span class="ticker-dot cyan"></span>Strategic Planning</span>
+    <span class="ticker-item"><span class="ticker-dot green"></span>Operational Excellence</span>
+    <span class="ticker-item"><span class="ticker-dot magenta"></span>Leadership Development</span>
+    <span class="ticker-item"><span class="ticker-dot gold"></span>Digital Transformation</span>
+    <span class="ticker-item"><span class="ticker-dot cyan"></span>Growth Strategy</span>
+    <span class="ticker-item"><span class="ticker-dot green"></span>Organizational Design</span>
+    <span class="ticker-item"><span class="ticker-dot magenta"></span>15+ Years Experience</span>
+    <span class="ticker-item"><span class="ticker-dot gold"></span>98% Client Retention</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item"><span class="ticker-dot cyan"></span>Strategic Planning</span>
+    <span class="ticker-item"><span class="ticker-dot green"></span>Operational Excellence</span>
+    <span class="ticker-item"><span class="ticker-dot magenta"></span>Leadership Development</span>
+    <span class="ticker-item"><span class="ticker-dot gold"></span>Digital Transformation</span>
+    <span class="ticker-item"><span class="ticker-dot cyan"></span>Growth Strategy</span>
+    <span class="ticker-item"><span class="ticker-dot green"></span>Organizational Design</span>
+    <span class="ticker-item"><span class="ticker-dot magenta"></span>15+ Years Experience</span>
+    <span class="ticker-item"><span class="ticker-dot gold"></span>98% Client Retention</span>
+  </div>
+</div>
+
+<!-- ─── SERVICES ─── -->
+<section class="services" id="services">
+  <div class="services-top">
+    <div>
+      <div class="section-eyebrow">Our Expertise</div>
+      <h2 class="section-title">Where <em>strategy</em><br>meets execution.</h2>
+    </div>
+    <p class="services-note">From boardroom to frontline, we bring clarity and conviction to every engagement.</p>
+  </div>
+
+  <div class="services-list">
+    <div class="service-row reveal">
+      <div class="service-num">01</div>
+      <div class="service-name">Strategic Planning</div>
+      <p class="service-desc">Clear direction, aligned stakeholders, roadmaps that translate vision into measurable outcomes.</p>
+      <span class="service-tag tag-cyan">Strategy</span>
+    </div>
+    <div class="service-row reveal">
+      <div class="service-num">02</div>
+      <div class="service-name">Operational Excellence</div>
+      <p class="service-desc">Process redesign, performance systems, eliminating friction at every level.</p>
+      <span class="service-tag tag-green">Operations</span>
+    </div>
+    <div class="service-row reveal">
+      <div class="service-num">03</div>
+      <div class="service-name">Leadership Development</div>
+      <p class="service-desc">Tools, frameworks, and confidence for executives to navigate complexity and inspire performance.</p>
+      <span class="service-tag tag-magenta">People</span>
+    </div>
+    <div class="service-row reveal">
+      <div class="service-num">04</div>
+      <div class="service-name">Digital Transformation</div>
+      <p class="service-desc">From assessment to change management — turning technology adoption into real value.</p>
+      <span class="service-tag tag-cyan">Technology</span>
+    </div>
+    <div class="service-row reveal">
+      <div class="service-num">05</div>
+      <div class="service-name">Growth Strategy</div>
+      <p class="service-desc">Market entry, expansion, M&amp;A advisory — analytical foundation for confident growth.</p>
+      <span class="service-tag tag-gold">Growth</span>
+    </div>
+    <div class="service-row reveal">
+      <div class="service-num">06</div>
+      <div class="service-name">Organizational Design</div>
+      <p class="service-desc">Structures, roles, and governance that enable accountability, agility, and high performance.</p>
+      <span class="service-tag tag-green">Design</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section class="about" id="about">
+  <div class="about-left reveal">
+    <img src="brand_assests/logo1.png" alt="DeLara Consulting"/>
+  </div>
+  <div class="about-right">
+    <div class="about-eyebrow">Our Philosophy</div>
+    <h2 class="about-title">Partnership.<br><span>Not prescription.</span></h2>
+    <p class="about-body">At DeLara, we believe the most powerful consulting relationships are built on deep partnership — not just deliverables. We embed with your team, understand your context, and bring the full weight of our experience to bear on what matters most.</p>
+    <div class="values-grid">
+      <div class="value-pill reveal">
+        <div class="value-pill-title">Clarity Over Complexity</div>
+        <p class="value-pill-desc">Distilling the essential so leaders can act with confidence.</p>
+      </div>
+      <div class="value-pill reveal reveal-delay-1">
+        <div class="value-pill-title">Results That Endure</div>
+        <p class="value-pill-desc">Lasting capability, not just a report on a shelf.</p>
+      </div>
+      <div class="value-pill reveal reveal-delay-2">
+        <div class="value-pill-title">Candor With Care</div>
+        <p class="value-pill-desc">What you need to hear, delivered with genuine respect.</p>
+      </div>
+      <div class="value-pill reveal reveal-delay-3">
+        <div class="value-pill-title">Co-Created Solutions</div>
+        <p class="value-pill-desc">Built for your context — not a pre-packaged answer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section class="process" id="process">
+  <div class="process-header reveal">
+    <div class="section-eyebrow">How We Work</div>
+    <h2 class="section-title">A proven path<br>to <em>impact.</em></h2>
+  </div>
+  <div class="process-track">
+    <div class="process-step reveal">
+      <div class="step-badge badge-1">1</div>
+      <div class="step-title">Discovery</div>
+      <p class="step-desc">Deep listening and diagnostic work to understand your context, challenges, goals, and dynamics.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-1">
+      <div class="step-badge badge-2">2</div>
+      <div class="step-title">Diagnosis</div>
+      <p class="step-desc">Structured analysis to identify root causes and frame the strategic choices you face.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="step-badge badge-3">3</div>
+      <div class="step-title">Design</div>
+      <p class="step-desc">Co-creating strategies and plans that are ambitious, actionable, and context-specific.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="step-badge badge-4">4</div>
+      <div class="step-title">Delivery</div>
+      <p class="step-desc">Hands-on implementation support ensuring plans translate into real outcomes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-header reveal">
+    <div class="section-eyebrow">Client Voices</div>
+    <h2 class="section-title">What our <em>partners</em><br>are saying.</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="t-accent t-accent-cyan"></div>
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">DeLara didn't just give us a strategy — they gave us the confidence to execute it. Their ability to align our leadership team was transformative.</p>
+      <div class="testimonial-author">Sarah Mitchell</div>
+      <div class="testimonial-role">CEO, Meridian Group</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="t-accent t-accent-green"></div>
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">Working with DeLara felt like having the most capable advisor in the room. They asked better questions than we had, and their recommendations were bold and grounded.</p>
+      <div class="testimonial-author">James Okafor</div>
+      <div class="testimonial-role">President, Northbridge Capital</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="t-accent t-accent-magenta"></div>
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">In two years of working together, they've helped us double revenue, restructure our organization, and build a leadership team ready for the next level.</p>
+      <div class="testimonial-author">Elena Vasquez</div>
+      <div class="testimonial-role">COO, Apex Ventures</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section" id="contact">
+  <div class="cta-eyebrow">Start the Conversation</div>
+  <h2 class="cta-title">Ready to begin?<br><span>Let's talk.</span></h2>
+  <p class="cta-sub">No obligations — just a candid, valuable discussion about what's possible for your organization.</p>
+  <div class="cta-buttons">
+    <a href="mailto:hello@delaraconsulting.com" class="btn-cta">Schedule a Call</a>
+    <a href="mailto:hello@delaraconsulting.com" class="btn-cta-outline">Send a Message</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">
+        <img src="brand_assests/logo1.png" alt="DeLara Consulting LLC"/>
+      </div>
+      <p class="footer-brand-desc">Partnering with visionary leaders to unlock potential, accelerate growth, and build organizations that endure.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Strategic Planning</a></li>
+        <li><a href="#services">Operational Excellence</a></li>
+        <li><a href="#services">Leadership Development</a></li>
+        <li><a href="#services">Digital Transformation</a></li>
+        <li><a href="#services">Growth Strategy</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#testimonials">Client Stories</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <ul class="footer-links">
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="mailto:hello@delaraconsulting.com">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 DeLara Consulting, LLC. All rights reserved.</p>
+    <ul class="footer-legal">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Use</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

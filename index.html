@@ -123,6 +123,31 @@ nav.scrolled {
 }
 .nav-cta:active { transform: translateY(0); }
 
+/* ─── PAGE TOGGLE ─── */
+.page-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(244,238,224,0.07);
+  border: 1px solid rgba(201,163,88,0.2);
+  border-radius: 4px;
+  padding: 3px;
+}
+.toggle-btn {
+  width: 30px; height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.toggle-btn:hover { color: var(--white); background: rgba(244,238,224,0.1); }
+.toggle-btn.active { background: var(--gold); color: var(--dark); }
+
 /* ─── HERO ─── */
 .hero {
   min-height: 100vh;
@@ -889,6 +914,11 @@ a:focus-visible {
     <li><a href="#process">Process</a></li>
     <li><a href="#testimonials">Clients</a></li>
   </ul>
+  <div class="page-toggle">
+    <a href="index.html" class="toggle-btn active">1</a>
+    <a href="landing-2.html" class="toggle-btn">2</a>
+    <a href="landing-3.html" class="toggle-btn">3</a>
+  </div>
   <a href="#contact" class="nav-cta">Get in Touch</a>
 </nav>
 
