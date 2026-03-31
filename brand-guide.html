@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DeLara Consulting LLC — Brand Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C85C2A;
+    --gold: #C9993A;
+    --ink: #211510;
+    --sienna: #9A6B52;
+    --cream: #F5F0E8;
+    --ivory: #FAF8F4;
+    --charcoal: #5A5558;
+    --mist: #E8E2D8;
+    --white: #FFFFFF;
+
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Montserrat', Arial, sans-serif;
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NOISE TEXTURE ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  section { position: relative; z-index: 1; }
+
+  /* ─── TYPOGRAPHY UTILITIES ─── */
+  .display { font-family: var(--font-display); }
+  .sans { font-family: var(--font-body); }
+  .label {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sienna);
+  }
+
+  /* ─── SECTION WRAPPER ─── */
+  .section-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  /* ─── DIVIDER ─── */
+  .rule {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--mist) 15%, var(--mist) 85%, transparent);
+  }
+
+  /* ══════════════════════════════════════════
+     COVER
+  ══════════════════════════════════════════ */
+  #cover {
+    min-height: 100vh;
+    background: var(--ink);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #cover::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0; right: 0;
+    height: 80px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .cover-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 8rem 6rem;
+    position: relative;
+  }
+
+  .cover-left::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 30% 40%, rgba(201,153,58,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 70% 70%, rgba(200,92,42,0.08) 0%, transparent 60%);
+  }
+
+  .cover-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+  }
+
+  .cover-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
+  .cover-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 7vw, 7rem);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--ivory);
+    letter-spacing: -0.02em;
+    position: relative;
+  }
+
+  .cover-title .accent { color: var(--gold); font-style: italic; }
+
+  .cover-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--sienna);
+    margin-top: 1rem;
+    position: relative;
+  }
+
+  .cover-tagline {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(245,240,232,0.55);
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(201,153,58,0.2);
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .cover-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover-right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 80% at 50% 50%, rgba(201,153,58,0.07) 0%, transparent 70%);
+  }
+
+  .logo-hero-box {
+    position: relative;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .logo-primary-display {
+    background: var(--ivory);
+    border-radius: 4px;
+    padding: 3.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+      0 40px 80px rgba(0,0,0,0.4),
+      0 8px 24px rgba(0,0,0,0.3),
+      inset 0 1px 0 rgba(255,255,255,0.8);
+  }
+
+  .logo-primary-display img { width: 240px; height: auto; }
+
+  .cover-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .cover-meta-item {
+    border-top: 1px solid rgba(201,153,58,0.25);
+    padding-top: 1rem;
+  }
+
+  .cover-meta-item .num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .cover-meta-item .desc {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    margin-top: 0.25rem;
+  }
+
+  /* ══════════════════════════════════════════
+     COLOR PALETTE
+  ══════════════════════════════════════════ */
+  #colors {
+    padding: 8rem 0 6rem;
+    background: var(--cream);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .section-number {
+    font-family: var(--font-display);
+    font-size: 6rem;
+    font-weight: 300;
+    color: var(--mist);
+    line-height: 0.9;
+    flex-shrink: 0;
+    margin-top: -0.5rem;
+  }
+
+  .section-heading {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+
+  .section-desc {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--sienna);
+    line-height: 1.8;
+    margin-top: 0.75rem;
+    max-width: 480px;
+    font-weight: 400;
+  }
+
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(33,21,16,0.12), 0 4px 16px rgba(33,21,16,0.08);
+  }
+
+  .color-swatch {
+    aspect-ratio: 3/4;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  }
+
+  .color-swatch:hover { transform: scaleY(1.04); z-index: 2; }
+
+  .swatch-fill { position: absolute; inset: 0; }
+
+  .swatch-info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1.5rem 1.25rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.35), transparent);
+  }
+
+  .swatch-name {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .swatch-hex {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .swatch-rgb {
+    font-family: var(--font-body);
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+    margin-top: 0.2rem;
+  }
+
+  .on-dark .swatch-name,
+  .on-dark .swatch-hex,
+  .on-dark .swatch-rgb { color: rgba(245,240,232,0.9); }
+
+  .on-light .swatch-name { color: var(--sienna); }
+  .on-light .swatch-hex { color: var(--ink); }
+  .on-light .swatch-rgb { color: var(--charcoal); }
+  .on-light .swatch-info { background: linear-gradient(to top, rgba(245,240,232,0.6), transparent); }
+
+  /* Color role pills */
+  .color-roles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .role-card {
+    background: var(--ivory);
+    border: 1px solid var(--mist);
+    border-radius: 4px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .role-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 3px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  .role-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+
+  .role-desc {
+    font-size: 0.72rem;
+    color: var(--sienna);
+    line-height: 1.6;
+  }
+
+  /* ══════════════════════════════════════════
+     TYPOGRAPHY
+  ══════════════════════════════════════════ */
+  #typography {
+    padding: 6rem 0;
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #typography::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 10% 50%, rgba(201,153,58,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 90% 20%, rgba(200,92,42,0.04) 0%, transparent 50%);
+  }
+
+  .type-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    position: relative;
+  }
+
+  .type-family {
+    padding: 3rem;
+    border: 1px solid rgba(201,153,58,0.15);
+    border-radius: 4px;
+    background: rgba(201,153,58,0.03);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .type-family::before {
+    content: attr(data-font);
+    position: absolute;
+    top: -1rem; right: -0.5rem;
+    font-size: 8rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.015);
+    font-family: var(--font-body);
+    letter-spacing: -0.05em;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .type-label {
+    font-family: var(--font-body);
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .type-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(201,153,58,0.25);
+  }
+
+  .type-specimen-display {
+    font-family: var(--font-display);
+    font-size: 4.5rem;
+    font-weight: 300;
+    color: var(--ivory);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .type-specimen-display .g { color: var(--gold); font-style: italic; }
+
+  .type-specimen-sans {
+    font-family: var(--font-body);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--ivory);
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+  }
+
+  .type-weights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(201,153,58,0.12);
+  }
+
+  .weight-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .weight-name {
+    font-family: var(--font-body);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.35);
+  }
+
+  .weight-sample-display {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: rgba(245,240,232,0.7);
+    letter-spacing: -0.01em;
+  }
+
+  .weight-sample-sans {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(245,240,232,0.7);
+  }
+
+  /* Scale */
+  .type-scale {
+    margin-top: 4rem;
+    position: relative;
+  }
+
+  .scale-title {
+    font-family: var(--font-body);
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2.5rem;
+  }
+
+  .scale-row {
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(201,153,58,0.08);
+  }
+
+  .scale-size {
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+    width: 72px;
+    flex-shrink: 0;
+  }
+
+  .scale-use {
+    font-size: 0.58rem;
+    color: var(--sienna);
+    width: 120px;
+    flex-shrink: 0;
+  }
+
+  /* ══════════════════════════════════════════
+     LOGO USAGE
+  ══════════════════════════════════════════ */
+  #logo-usage {
+    padding: 8rem 0 6rem;
+    background: var(--cream);
+  }
+
+  .logo-variants {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 4rem;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(33,21,16,0.10);
+  }
+
+  .logo-variant {
+    padding: 3.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .variant-label {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .logo-variant img { width: 160px; height: auto; }
+
+  /* Clearspace diagram */
+  .clearspace-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .clearspace-box {
+    background: var(--ivory);
+    border: 1px solid var(--mist);
+    border-radius: 4px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .clearspace-diagram {
+    position: relative;
+    display: inline-block;
+    padding: 1.5rem;
+  }
+
+  .clearspace-diagram::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1.5px dashed rgba(200,92,42,0.35);
+    border-radius: 2px;
+  }
+
+  .clearspace-arrows {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    font-family: var(--font-body);
+    white-space: nowrap;
+    margin-top: -1.5rem;
+  }
+
+  .clearspace-img { width: 140px; height: auto; }
+
+  /* Donts */
+  .donts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .dont-card {
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(33,21,16,0.08);
+    position: relative;
+  }
+
+  .dont-visual {
+    background: var(--ivory);
+    padding: 2.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+    position: relative;
+  }
+
+  .dont-visual::after {
+    content: '✕';
+    position: absolute;
+    top: 0.75rem; right: 0.75rem;
+    width: 22px; height: 22px;
+    background: #D94040;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.6rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .dont-label-bar {
+    background: var(--ink);
+    padding: 0.75rem 1rem;
+  }
+
+  .dont-rule {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.7);
+  }
+
+  /* ══════════════════════════════════════════
+     BRAND VOICE
+  ══════════════════════════════════════════ */
+  #brand-voice {
+    padding: 6rem 0;
+    background: var(--terracotta);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #brand-voice::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 30%, rgba(201,153,58,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(33,21,16,0.2) 0%, transparent 50%);
+  }
+
+  .voice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    position: relative;
+  }
+
+  .voice-left .section-heading { color: var(--ivory); font-size: 3.5rem; }
+  .voice-left .section-desc { color: rgba(245,240,232,0.7); }
+  .voice-left .label { color: rgba(245,240,232,0.5); }
+
+  .voice-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 2.5rem;
+  }
+
+  .pillar {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(245,240,232,0.12);
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .pillar-word {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--gold);
+    line-height: 1.1;
+    width: 140px;
+    flex-shrink: 0;
+    font-style: italic;
+  }
+
+  .pillar-desc {
+    font-size: 0.75rem;
+    color: rgba(245,240,232,0.65);
+    line-height: 1.7;
+    padding-top: 0.25rem;
+  }
+
+  .voice-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  .voice-example {
+    background: rgba(33,21,16,0.18);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(245,240,232,0.08);
+    border-radius: 4px;
+    padding: 1.75rem;
+  }
+
+  .example-type {
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .example-type.do { color: var(--gold); }
+  .example-type.dont { color: rgba(245,240,232,0.3); }
+
+  .example-text {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(245,240,232,0.85);
+  }
+
+  .example-text.crossed {
+    text-decoration: line-through;
+    color: rgba(245,240,232,0.3);
+  }
+
+  /* ══════════════════════════════════════════
+     DESIGN ELEMENTS
+  ══════════════════════════════════════════ */
+  #elements {
+    padding: 8rem 0 6rem;
+    background: var(--cream);
+  }
+
+  .elements-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .element-card {
+    background: var(--ivory);
+    border: 1px solid var(--mist);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .element-preview {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .element-meta {
+    padding: 1.25rem 1.5rem;
+    border-top: 1px solid var(--mist);
+  }
+
+  .element-name {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .element-desc {
+    font-size: 0.7rem;
+    color: var(--sienna);
+    line-height: 1.6;
+  }
+
+  /* Pattern preview */
+  .pattern-bg {
+    background:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 18px,
+        rgba(200,92,42,0.06) 18px,
+        rgba(200,92,42,0.06) 19px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 18px,
+        rgba(201,153,58,0.04) 18px,
+        rgba(201,153,58,0.04) 19px
+      ),
+      var(--cream);
+    width: 100%; height: 100%;
+  }
+
+  /* Gradient preview */
+  .gradient-preview {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, var(--ink) 0%, #3D1A0D 50%, var(--terracotta) 100%);
+    position: relative;
+  }
+
+  .gradient-preview::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(201,153,58,0.4), transparent 60%);
+  }
+
+  /* Shadow system */
+  .shadow-demo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    width: 100%;
+  }
+
+  .shadow-chip {
+    background: var(--ivory);
+    border-radius: 4px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .shadow-chip-text {
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sienna);
+  }
+
+  /* ══════════════════════════════════════════
+     STATIONERY MOCKUPS
+  ══════════════════════════════════════════ */
+  #stationery {
+    padding: 6rem 0;
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #stationery::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 100%, rgba(201,153,58,0.05) 0%, transparent 60%);
+  }
+
+  .stationery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    position: relative;
+  }
+
+  /* Business Card */
+  .biz-card {
+    aspect-ratio: 1.75;
+    background: var(--ivory);
+    border-radius: 6px;
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 32px 64px rgba(0,0,0,0.5), 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .biz-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold));
+  }
+
+  .biz-card-logo img { height: 36px; width: auto; }
+
+  .biz-card-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .biz-card-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .biz-card-title {
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sienna);
+    margin-top: 0.15rem;
+  }
+
+  .biz-card-info {
+    font-size: 0.62rem;
+    color: var(--charcoal);
+    line-height: 1.8;
+    margin-top: 0.75rem;
+  }
+
+  /* Dark card variant */
+  .biz-card-dark {
+    background: var(--ink);
+  }
+
+  .biz-card-dark::before {
+    background: linear-gradient(90deg, var(--gold), var(--terracotta));
+  }
+
+  .biz-card-dark .biz-card-name { color: var(--ivory); }
+  .biz-card-dark .biz-card-info { color: rgba(245,240,232,0.5); }
+
+  /* Letterhead */
+  .letterhead {
+    background: var(--ivory);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 32px 64px rgba(0,0,0,0.5), 0 8px 24px rgba(0,0,0,0.3);
+    aspect-ratio: 0.77;
+  }
+
+  .lh-header {
+    background: var(--ink);
+    padding: 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .lh-header img { height: 28px; width: auto; }
+
+  .lh-contact-mini {
+    font-size: 0.5rem;
+    font-weight: 500;
+    color: rgba(245,240,232,0.4);
+    text-align: right;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+  }
+
+  .lh-stripe {
+    height: 3px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold));
+  }
+
+  .lh-body {
+    padding: 2rem 2.5rem;
+    flex: 1;
+  }
+
+  .lh-date {
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sienna);
+    margin-bottom: 1.5rem;
+  }
+
+  .lh-greeting {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .lh-text {
+    font-size: 0.6rem;
+    color: var(--charcoal);
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+  }
+
+  .lh-footer {
+    border-top: 1px solid var(--mist);
+    padding: 1rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+
+  .lh-footer-text {
+    font-size: 0.5rem;
+    color: var(--sienna);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .lh-footer-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--terracotta), var(--gold));
+  }
+
+  /* ══════════════════════════════════════════
+     FOOTER
+  ══════════════════════════════════════════ */
+  #footer {
+    padding: 4rem 0;
+    background: var(--ink);
+    border-top: 1px solid rgba(201,153,58,0.15);
+    position: relative;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .footer-logo img { height: 28px; width: auto; }
+
+  .footer-text {
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.25);
+  }
+
+  .footer-version {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  /* ══════════════════════════════════════════
+     ANIMATIONS
+  ══════════════════════════════════════════ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.25s; }
+  .delay-3 { animation-delay: 0.4s; }
+  .delay-4 { animation-delay: 0.55s; }
+  .delay-5 { animation-delay: 0.7s; }
+
+  /* Print */
+  @media print {
+    #cover { min-height: auto; page-break-after: always; }
+    .color-swatch:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     01 — COVER
+═══════════════════════════════════════════ -->
+<section id="cover">
+  <div class="cover-left">
+    <div class="cover-eyebrow animate-fade-up">Brand Identity Guide</div>
+    <h1 class="cover-title animate-fade-up delay-1">
+      De<span class="accent">L</span>ara<br/>
+    </h1>
+    <p class="cover-subtitle animate-fade-up delay-2">Consulting LLC</p>
+    <p class="cover-tagline animate-fade-up delay-3">
+      Illuminating Solutions.<br/>Inspiring Growth.
+    </p>
+  </div>
+
+  <div class="cover-right">
+    <div class="logo-hero-box animate-fade-up delay-2">
+      <div class="logo-primary-display">
+        <img src="brand_assests/Logo1.png" alt="DeLara Consulting LLC — Primary Logo"/>
+      </div>
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <div class="num">2</div>
+          <div class="desc">Logo Variants</div>
+        </div>
+        <div class="cover-meta-item">
+          <div class="num">5</div>
+          <div class="desc">Brand Colors</div>
+        </div>
+        <div class="cover-meta-item">
+          <div class="num">2</div>
+          <div class="desc">Typefaces</div>
+        </div>
+        <div class="cover-meta-item">
+          <div class="num">v1</div>
+          <div class="desc">2025 Edition</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     02 — COLOR PALETTE
+═══════════════════════════════════════════ -->
+<section id="colors">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-number">02</div>
+      <div>
+        <div class="label">Color System</div>
+        <h2 class="section-heading">A Palette of<br/>Warmth & Precision</h2>
+        <p class="section-desc">
+          Drawn from terracotta earth, burnished gold, and rich shadow — these colors
+          convey the warmth of trusted partnership and the weight of proven expertise.
+        </p>
+      </div>
+    </div>
+
+    <div class="color-grid">
+      <!-- Terracotta -->
+      <div class="color-swatch on-dark">
+        <div class="swatch-fill" style="background:#C85C2A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Terracotta</div>
+          <div class="swatch-hex">#C85C2A</div>
+          <div class="swatch-rgb">RGB 200 · 92 · 42</div>
+        </div>
+      </div>
+      <!-- Gold -->
+      <div class="color-swatch on-dark">
+        <div class="swatch-fill" style="background:#C9993A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Amber Gold</div>
+          <div class="swatch-hex">#C9993A</div>
+          <div class="swatch-rgb">RGB 201 · 153 · 58</div>
+        </div>
+      </div>
+      <!-- Ink -->
+      <div class="color-swatch on-dark">
+        <div class="swatch-fill" style="background:#211510;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Inkwell</div>
+          <div class="swatch-hex">#211510</div>
+          <div class="swatch-rgb">RGB 33 · 21 · 16</div>
+        </div>
+      </div>
+      <!-- Sienna -->
+      <div class="color-swatch on-dark">
+        <div class="swatch-fill" style="background:#9A6B52;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Sienna</div>
+          <div class="swatch-hex">#9A6B52</div>
+          <div class="swatch-rgb">RGB 154 · 107 · 82</div>
+        </div>
+      </div>
+      <!-- Cream -->
+      <div class="color-swatch on-light">
+        <div class="swatch-fill" style="background:#F5F0E8; border:1px solid #E8E2D8;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Cream</div>
+          <div class="swatch-hex">#F5F0E8</div>
+          <div class="swatch-rgb">RGB 245 · 240 · 232</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-roles">
+      <div class="role-card">
+        <div class="role-dot" style="background:#C85C2A;"></div>
+        <div>
+          <div class="role-title">Primary Brand</div>
+          <div class="role-desc">Terracotta anchors all primary UI — CTAs, links, logo mark, and key accent moments.</div>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-dot" style="background:#C9993A;"></div>
+        <div>
+          <div class="role-title">Accent & Highlight</div>
+          <div class="role-desc">Amber Gold elevates premium details — the "L" glyph, decorative lines, and hover states.</div>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-dot" style="background:#211510;"></div>
+        <div>
+          <div class="role-title">Primary Text & BG</div>
+          <div class="role-desc">Inkwell grounds heavy-weight headings and serves as the dark-mode surface color.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ═══════════════════════════════════════════
+     03 — TYPOGRAPHY
+═══════════════════════════════════════════ -->
+<section id="typography">
+  <div class="section-wrap">
+    <div class="section-header" style="margin-bottom:3.5rem;">
+      <div class="section-number" style="color:rgba(245,240,232,0.06);">03</div>
+      <div>
+        <div class="label" style="color:var(--gold); opacity:0.8;">Type System</div>
+        <h2 class="section-heading" style="color:var(--ivory);">Two Voices,<br/>One Identity</h2>
+        <p class="section-desc">
+          A refined serif paired with a geometric sans creates a dialogue between
+          tradition and modernity — the essence of DeLara's consulting philosophy.
+        </p>
+      </div>
+    </div>
+
+    <div class="type-showcase">
+      <!-- Display -->
+      <div class="type-family" data-font="Cg">
+        <div class="type-label">Cormorant Garamond — Display</div>
+        <div class="type-specimen-display">The Art<br/>of <span class="g">Ideas</span></div>
+        <p style="font-family:var(--font-display); font-size:0.9rem; color:rgba(245,240,232,0.5); line-height:1.75; font-weight:300;">
+          A typeface of rare elegance — Cormorant Garamond carries the warmth
+          of a classic serif with expressive contrast that commands attention.
+        </p>
+        <div class="type-weights">
+          <div class="weight-row">
+            <span class="weight-name">Light 300</span>
+            <span class="weight-sample-display" style="font-weight:300;">DeLara Consulting</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-name">Regular 400</span>
+            <span class="weight-sample-display" style="font-weight:400;">DeLara Consulting</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-name">Medium 500</span>
+            <span class="weight-sample-display" style="font-weight:500;">DeLara Consulting</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-name">SemiBold 600</span>
+            <span class="weight-sample-display" style="font-weight:600;">DeLara Consulting</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-name">Italic</span>
+            <span class="weight-sample-display" style="font-style:italic;">Illuminating Ideas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sans -->
+      <div class="type-family" data-font="Mm">
+        <div class="type-label">Montserrat — Interface & Body</div>
+        <div class="type-specimen-sans">INSIGHT<br/>IN ACTION</div>
+        <p style="font-family:var(--font-body); font-size:0.82rem; color:rgba(245,240,232,0.5); line-height:1.85; font-weight:400; letter-spacing:0.01em;">
+          Montserrat brings geometric precision to labels, captions, navigation,
+          and body text — grounding the brand in clarity and professionalism.
+        </p>
+        <div class="type-weights">
+          <div class="weight-row">
+            <span class="weight-name">Light 300</span>
+            <span class="weight-sample-sans" style="font-weight:300;">Solutions Built to Last</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-name">Regular 400</span>
+            <span class="weight-sample-sans" style="font-weight:400;">Solutions Built to Last</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-name">SemiBold 600</span>
+            <span class="weight-sample-sans" style="font-weight:600;">Solutions Built to Last</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-name">Bold 700</span>
+            <span class="weight-sample-sans" style="font-weight:700;">Solutions Built to Last</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-name">ExtraBold 800</span>
+            <span class="weight-sample-sans" style="font-weight:800;">CONSULTING LLC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Type Scale -->
+    <div class="type-scale">
+      <div class="scale-title">Type Scale</div>
+      <div class="scale-row">
+        <span class="scale-size">72px · 4.5rem</span>
+        <span class="scale-use">Hero display</span>
+        <span style="font-family:var(--font-display); font-size:2.5rem; font-weight:300; color:var(--ivory); letter-spacing:-0.02em; line-height:1;">DeLara</span>
+      </div>
+      <div class="scale-row">
+        <span class="scale-size">48px · 3rem</span>
+        <span class="scale-use">Section title</span>
+        <span style="font-family:var(--font-display); font-size:1.8rem; font-weight:400; color:var(--ivory); letter-spacing:-0.01em;">Consulting Excellence</span>
+      </div>
+      <div class="scale-row">
+        <span class="scale-size">28px · 1.75rem</span>
+        <span class="scale-use">Subheading</span>
+        <span style="font-family:var(--font-display); font-size:1.2rem; font-weight:500; color:rgba(245,240,232,0.8);">Strategic Partnership</span>
+      </div>
+      <div class="scale-row">
+        <span class="scale-size">14px · 0.875rem</span>
+        <span class="scale-use">Body copy</span>
+        <span style="font-family:var(--font-body); font-size:0.78rem; font-weight:400; color:rgba(245,240,232,0.6); line-height:1.7;">We help organizations navigate complexity and unlock sustainable growth.</span>
+      </div>
+      <div class="scale-row">
+        <span class="scale-size">10px · 0.625rem</span>
+        <span class="scale-use">Label / caption</span>
+        <span style="font-family:var(--font-body); font-size:0.6rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold);">Consulting LLC</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     04 — LOGO USAGE
+═══════════════════════════════════════════ -->
+<section id="logo-usage">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-number">04</div>
+      <div>
+        <div class="label">Logo System</div>
+        <h2 class="section-heading">The Mark &<br/>Its Applications</h2>
+        <p class="section-desc">
+          DeLara's lightbulb mark symbolizes clarity of thought and the spark of
+          innovation. Handle it with consistency to protect the brand's integrity.
+        </p>
+      </div>
+    </div>
+
+    <!-- Logo variants -->
+    <div class="logo-variants">
+      <!-- Primary on cream -->
+      <div class="logo-variant" style="background:var(--ivory);">
+        <img src="brand_assests/Logo1.png" alt="Primary logo — premium"/>
+        <div class="variant-label" style="color:var(--sienna);">Primary · Cream Background</div>
+      </div>
+      <!-- Secondary on white -->
+      <div class="logo-variant" style="background:#fff;">
+        <img src="brand_assests/Logo2.png" alt="Secondary logo — flat"/>
+        <div class="variant-label" style="color:var(--sienna);">Secondary · White Background</div>
+      </div>
+      <!-- Reverse on dark -->
+      <div class="logo-variant" style="background:var(--ink);">
+        <img src="brand_assests/logo-full.svg" alt="SVG logo — dark background"/>
+        <div class="variant-label" style="color:rgba(245,240,232,0.4);">SVG Mark · Dark Background</div>
+      </div>
+    </div>
+
+    <!-- Clearspace + Donts -->
+    <div class="clearspace-section">
+      <div class="clearspace-box">
+        <div class="label" style="align-self:flex-start;">Clearspace Rule</div>
+        <div class="clearspace-diagram">
+          <div class="clearspace-arrows">← X →</div>
+          <img class="clearspace-img" src="brand_assests/Logo2.png" alt=""/>
+        </div>
+        <p style="font-size:0.72rem; color:var(--sienna); text-align:center; line-height:1.7; max-width:240px;">
+          Always maintain a minimum clearspace equal to the height of the "D" in DeLara on all four sides of the logo.
+        </p>
+        <div style="display:flex; gap:1rem; width:100%; justify-content:center;">
+          <div style="text-align:center;">
+            <div style="font-size:0.55rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--sienna); margin-bottom:0.4rem;">Min. Digital</div>
+            <div style="font-family:var(--font-display); font-size:1.4rem; font-weight:500; color:var(--ink);">120px</div>
+          </div>
+          <div style="width:1px; background:var(--mist);"></div>
+          <div style="text-align:center;">
+            <div style="font-size:0.55rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--sienna); margin-bottom:0.4rem;">Min. Print</div>
+            <div style="font-family:var(--font-display); font-size:1.4rem; font-weight:500; color:var(--ink);">1.25"</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Donts -->
+      <div>
+        <div class="label" style="margin-bottom:1.5rem;">Logo Don'ts</div>
+        <div class="donts-grid">
+          <div class="dont-card">
+            <div class="dont-visual">
+              <img src="brand_assests/Logo2.png" style="width:100px; filter:hue-rotate(180deg);"/>
+            </div>
+            <div class="dont-label-bar">
+              <div class="dont-rule">Don't recolor</div>
+            </div>
+          </div>
+          <div class="dont-card">
+            <div class="dont-visual">
+              <img src="brand_assests/Logo2.png" style="width:100px; transform:skewX(-10deg);"/>
+            </div>
+            <div class="dont-label-bar">
+              <div class="dont-rule">Don't skew or stretch</div>
+            </div>
+          </div>
+          <div class="dont-card">
+            <div class="dont-visual" style="background:repeating-linear-gradient(45deg, #f5e4d2, #f5e4d2 4px, #e8d5c0 4px, #e8d5c0 8px);">
+              <img src="brand_assests/Logo2.png" style="width:100px; opacity:0.6;"/>
+            </div>
+            <div class="dont-label-bar">
+              <div class="dont-rule">Don't use on busy BGs</div>
+            </div>
+          </div>
+          <div class="dont-card">
+            <div class="dont-visual">
+              <img src="brand_assests/Logo2.png" style="width:100px; filter:drop-shadow(4px 4px 0 #C85C2A) drop-shadow(-4px -4px 0 #C9993A);"/>
+            </div>
+            <div class="dont-label-bar">
+              <div class="dont-rule">Don't add effects</div>
+            </div>
+          </div>
+          <div class="dont-card">
+            <div class="dont-visual">
+              <img src="brand_assests/Logo2.png" style="width:60px;"/>
+              <span style="font-family:var(--font-body); font-size:0.7rem; font-weight:700; color:var(--terracotta); margin-left:-8px;">™ Solutions</span>
+            </div>
+            <div class="dont-label-bar">
+              <div class="dont-rule">Don't add to wordmark</div>
+            </div>
+          </div>
+          <div class="dont-card">
+            <div class="dont-visual">
+              <img src="brand_assests/Logo2.png" style="width:100px; opacity:0.25;"/>
+            </div>
+            <div class="dont-label-bar">
+              <div class="dont-rule">Don't use at low opacity</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     05 — BRAND VOICE
+═══════════════════════════════════════════ -->
+<section id="brand-voice">
+  <div class="section-wrap">
+    <div class="voice-grid">
+      <div class="voice-left">
+        <div class="label">05 — Brand Voice</div>
+        <h2 class="section-heading" style="color:var(--ivory); font-size:3.5rem; margin-top:1rem;">How<br/>We Speak</h2>
+        <p class="section-desc" style="color:rgba(245,240,232,0.65);">
+          DeLara speaks with the confidence of a seasoned advisor and the warmth
+          of a trusted partner — never corporate, always clear.
+        </p>
+
+        <div class="voice-pillars">
+          <div class="pillar">
+            <div class="pillar-word">Confident</div>
+            <div class="pillar-desc">We lead with authority. We make clear recommendations, not vague suggestions. Our expertise speaks for itself.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-word">Warm</div>
+            <div class="pillar-desc">Behind every project is a person. We communicate with genuine care, honesty, and a human touch.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-word">Precise</div>
+            <div class="pillar-desc">We choose words deliberately. No filler, no jargon for its own sake — only what moves the conversation forward.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-word">Illuminating</div>
+            <div class="pillar-desc">We turn complexity into clarity. Every touchpoint should leave the audience feeling smarter, not confused.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="voice-examples">
+        <div class="voice-example">
+          <div class="example-type do">✓ Do say</div>
+          <div class="example-text">"We identified three structural inefficiencies costing you roughly 18% in margin — here's how we fix them."</div>
+        </div>
+        <div class="voice-example">
+          <div class="example-type dont">✕ Don't say</div>
+          <div class="example-text crossed">"We've leveraged our synergistic cross-functional capabilities to ideate holistic solutions."</div>
+        </div>
+        <div class="voice-example">
+          <div class="example-type do">✓ Do say</div>
+          <div class="example-text">"You've built something real here. Let's protect it and take it further."</div>
+        </div>
+        <div class="voice-example">
+          <div class="example-type dont">✕ Don't say</div>
+          <div class="example-text crossed">"Our value-added service offerings provide robust solutions for your enterprise pain points."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     06 — STATIONERY
+═══════════════════════════════════════════ -->
+<section id="stationery">
+  <div class="section-wrap">
+    <div class="section-header" style="margin-bottom:3.5rem;">
+      <div class="section-number" style="color:rgba(245,240,232,0.04);">06</div>
+      <div>
+        <div class="label" style="color:var(--gold); opacity:0.8;">Applications</div>
+        <h2 class="section-heading" style="color:var(--ivory);">Brand in the<br/>Real World</h2>
+        <p class="section-desc">
+          Every touchpoint reinforces identity. From the first handshake to the final
+          deliverable — DeLara presents with consistency and intention.
+        </p>
+      </div>
+    </div>
+
+    <div class="stationery-grid">
+
+      <!-- Business Cards -->
+      <div>
+        <div class="label" style="color:var(--gold); opacity:0.7; margin-bottom:1.5rem;">Business Card · 3.5" × 2"</div>
+        <div style="display:flex; flex-direction:column; gap:2rem;">
+          <!-- Light card -->
+          <div class="biz-card">
+            <div class="biz-card-logo">
+              <img src="brand_assests/Logo2.png" alt="DeLara"/>
+            </div>
+            <div class="biz-card-contact">
+              <div class="biz-card-name">Maria DeLara</div>
+              <div class="biz-card-title">Principal Consultant</div>
+              <div class="biz-card-info">
+                maria@delaraconsulting.com<br/>
+                +1 (555) 000-0000<br/>
+                delaraconsulting.com
+              </div>
+            </div>
+          </div>
+          <!-- Dark card -->
+          <div class="biz-card biz-card-dark">
+            <div class="biz-card-logo">
+              <img src="brand_assests/logo-full.svg" alt="DeLara"/>
+            </div>
+            <div class="biz-card-contact">
+              <div class="biz-card-name">Maria DeLara</div>
+              <div class="biz-card-title" style="color:var(--gold);">Principal Consultant</div>
+              <div class="biz-card-info">
+                maria@delaraconsulting.com<br/>
+                +1 (555) 000-0000<br/>
+                delaraconsulting.com
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letterhead -->
+      <div>
+        <div class="label" style="color:var(--gold); opacity:0.7; margin-bottom:1.5rem;">Letterhead · US Letter 8.5" × 11"</div>
+        <div class="letterhead">
+          <div class="lh-header">
+            <img src="brand_assests/logo-full.svg" alt="DeLara"/>
+            <div class="lh-contact-mini">
+              delaraconsulting.com<br/>
+              +1 (555) 000-0000<br/>
+              contact@delaraconsulting.com
+            </div>
+          </div>
+          <div class="lh-stripe"></div>
+          <div class="lh-body">
+            <div class="lh-date">March 29, 2025</div>
+            <div class="lh-greeting">Dear Valued Client,</div>
+            <div class="lh-text">
+              We are pleased to present the findings from our strategic engagement
+              conducted over the past quarter. Our analysis has uncovered significant
+              opportunities to streamline operations and accelerate growth.
+            </div>
+            <div class="lh-text">
+              The recommendations outlined in this proposal are grounded in data
+              gathered directly from your teams and benchmarked against industry
+              standards. We are confident in the impact these changes will deliver.
+            </div>
+            <div class="lh-text">
+              Please do not hesitate to reach out with any questions. We look forward
+              to partnering with you on the path ahead.
+            </div>
+            <div style="margin-top:1.5rem;">
+              <div class="lh-text">Warm regards,</div>
+              <div style="font-family:var(--font-display); font-size:0.9rem; color:var(--ink); margin-top:0.75rem; font-weight:500;">Maria DeLara</div>
+              <div style="font-size:0.5rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--sienna);">Principal Consultant</div>
+            </div>
+          </div>
+          <div class="lh-footer">
+            <div class="lh-footer-text">DeLara Consulting LLC</div>
+            <div class="lh-footer-dot"></div>
+            <div class="lh-footer-text">Illuminating Solutions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<section id="footer">
+  <div class="section-wrap">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="brand_assests/logo-full.svg" alt="DeLara Consulting LLC"/>
+      </div>
+      <div class="footer-text">Brand Identity Guide · v1 · 2025</div>
+      <div class="footer-version">Confidential</div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Solo-section preview: ?solo=colors hides all other sections
+  const solo = new URLSearchParams(location.search).get('solo');
+  if (solo) {
+    document.addEventListener('DOMContentLoaded', () => {
+      ['cover','colors','typography','logo-usage','brand-voice','elements','stationery','footer']
+        .filter(id => id !== solo)
+        .forEach(id => { const el = document.getElementById(id); if(el) el.style.display='none'; });
+      // also hide divider rules between sections
+      document.querySelectorAll('.rule').forEach(r => r.style.display='none');
+    });
+  }
+</script>
+</body>
+</html>

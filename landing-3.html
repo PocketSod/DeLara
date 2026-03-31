@@ -83,7 +83,7 @@ nav.scrolled {
 }
 
 .nav-logo { text-decoration: none; }
-.nav-logo img { height: 44px; width: auto; object-fit: contain; }
+.nav-logo img { height: 52px; width: auto; object-fit: contain; mix-blend-mode: multiply; }
 
 .nav-links {
   display: flex;
@@ -341,13 +341,15 @@ nav.scrolled {
 }
 
 .hero-logo-img {
-  width: 72%;
-  max-width: 420px;
+  width: 78%;
+  max-width: 460px;
   object-fit: contain;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 20px 60px rgba(26,17,8,0.20))
-          drop-shadow(0 4px 16px rgba(181,144,47,0.18));
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 24px 80px rgba(181,144,47,0.32))
+          drop-shadow(0 8px 32px rgba(181,144,47,0.22))
+          drop-shadow(0 2px 8px rgba(26,17,8,0.18));
   animation: heroLogoIn 1.2s cubic-bezier(0.16,1,0.3,1) both;
   animation-delay: 0.4s;
 }
@@ -1112,7 +1114,7 @@ a:focus-visible, button:focus-visible {
 <!-- ─── NAV ─── -->
 <nav id="mainNav">
   <a href="index.html" class="nav-logo">
-    <img src="brand_assests/logo1.png" alt="DeLara Consulting LLC"/>
+    <img src="brand_assests/DeLara.png" alt="DeLara Consulting LLC"/>
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
@@ -1124,6 +1126,7 @@ a:focus-visible, button:focus-visible {
     <a href="index.html"    class="toggle-btn">1</a>
     <a href="landing-2.html" class="toggle-btn">2</a>
     <a href="landing-3.html" class="toggle-btn active">3</a>
+    <a href="landing-4.html" class="toggle-btn">4</a>
   </div>
   <a href="#contact" class="nav-cta">Get in Touch</a>
 </nav>
@@ -1372,7 +1375,7 @@ a:focus-visible, button:focus-visible {
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <img src="brand_assests/logo1.png" alt="DeLara Consulting LLC"/>
+      <img src="brand_assests/logoremovebg.png" alt="DeLara Consulting LLC"/>
       <p>We partner with ambitious organizations to transform complexity into clarity — delivering strategies that endure and results that matter.</p>
       <div class="footer-neon">
         <div class="neon-dot c"></div>

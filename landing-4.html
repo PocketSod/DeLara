@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DeLara Consulting, LLC. — Where Vision Meets Impact.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --c0:      #FDFAF2;
+  --c1:      #F4ECD6;
+  --c2:      #EAE0C8;
+  --c3:      #DDD0B2;
+  --c4:      #CEC09E;
+  --ink:     #1A1008;
+  --ink-2:   #2D1C0C;
+  --ink-3:   #3F2A16;
+  --ink-m:   rgba(26,16,8,0.50);
+  --ink-d:   rgba(26,16,8,0.26);
+  --gold:    #C9A358;
+  --gold-l:  #DDB96E;
+  --gold-d:  #8A6C38;
+  --gold-dim: rgba(201,163,88,0.18);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--c1);
+  font-family: 'Jost', sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--c2); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+}
+
+nav.scrolled {
+  background: rgba(244,236,214,0.97);
+  backdrop-filter: blur(16px);
+  padding: 13px 64px;
+  box-shadow: 0 1px 0 rgba(201,163,88,0.16), 0 4px 28px rgba(26,16,8,0.07);
+}
+
+.nav-logo { text-decoration: none; }
+.nav-logo img { height: 64px; width: auto; object-fit: contain; mix-blend-mode: multiply; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-m);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.25s ease;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; left: 0;
+  width: 0; height: 1.5px;
+  background: var(--gold);
+  transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.page-toggle {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(26,16,8,0.05);
+  border: 1px solid rgba(201,163,88,0.28);
+  border-radius: 4px;
+  padding: 3px;
+}
+.toggle-btn {
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 600;
+  font-family: 'Jost', sans-serif;
+  color: var(--ink-m);
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.toggle-btn:hover { color: var(--ink); background: rgba(26,16,8,0.06); }
+.toggle-btn.active { background: var(--gold); color: var(--c0); }
+
+.nav-cta {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--c0);
+  background: var(--ink);
+  padding: 11px 26px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+.nav-cta:hover { background: var(--ink-2); transform: translateY(-1px); }
+.nav-cta:active { transform: translateY(0); }
+.nav-cta:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+/* ─── HERO ─── */
+.hero {
+  display: grid;
+  grid-template-columns: 56fr 44fr;
+  height: 100vh;
+  min-height: 680px;
+  position: relative;
+}
+
+/* Subtle top accent bar */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold-l) 60%, transparent 100%);
+  z-index: 10;
+}
+
+.hero-photo {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  mix-blend-mode: lighten;
+  filter: drop-shadow(0 0 80px rgba(201,163,88,0.4)) drop-shadow(0 0 200px rgba(201,163,88,0.2));
+}
+
+/* Gradient veil on photo right edge — softens the split */
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 60%, var(--c1) 100%);
+  pointer-events: none;
+}
+
+/* Decorative gold circle — spans both panels */
+.hero-circle {
+  position: absolute;
+  width: min(68vh, 580px);
+  height: min(68vh, 580px);
+  border: 1.5px solid rgba(201,163,88,0.55);
+  border-radius: 50%;
+  bottom: 4%;
+  /* Center near the panel split, creating the Lily-style ring effect */
+  left: 33%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Second smaller circle — inner ring, more subtle */
+.hero-circle-inner {
+  position: absolute;
+  width: min(48vh, 410px);
+  height: min(48vh, 410px);
+  border: 0.75px solid rgba(201,163,88,0.28);
+  border-radius: 50%;
+  bottom: 10%;
+  left: 33%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 68px 80px 60px;
+  background: var(--c1);
+}
+
+.hero-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 36px; height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.hero-heading {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(42px, 5.5vw, 76px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.hero-heading em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold-d);
+}
+
+.hero-tagline {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(15px, 1.8vw, 20px);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-m);
+  margin-bottom: 48px;
+  line-height: 1.55;
+}
+
+.hero-rule {
+  width: 48px; height: 1.5px;
+  background: var(--gold);
+  margin-bottom: 44px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-solid {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Jost', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c0);
+  background: var(--gold);
+  padding: 14px 32px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.25s ease, transform 0.2s ease,
+              box-shadow 0.25s ease;
+  box-shadow: 0 4px 18px rgba(201,163,88,0.25), 0 1px 4px rgba(201,163,88,0.18);
+}
+.btn-solid:hover {
+  background: var(--gold-d);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(201,163,88,0.32), 0 2px 8px rgba(201,163,88,0.22);
+}
+.btn-solid:active { transform: translateY(0); }
+.btn-solid:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Jost', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  padding: 13px 28px;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 1.5px solid rgba(26,16,8,0.22);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+}
+.btn-ghost:hover {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+  transform: translateY(-2px);
+}
+.btn-ghost:active { transform: translateY(0); }
+.btn-ghost:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+/* Hero bottom: client count badge */
+.hero-badge {
+  position: absolute;
+  bottom: 44px;
+  left: 60px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 6;
+}
+
+.hero-badge-count {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.hero-badge-text {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--ink-m);
+  line-height: 1.5;
+  max-width: 100px;
+}
+
+.hero-badge-rule {
+  width: 1px; height: 36px;
+  background: var(--c3);
+}
+
+/* ─── STATS BAR ─── */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--c3);
+  border-bottom: 1px solid var(--c3);
+  background: var(--c0);
+}
+
+.stat-item {
+  padding: 40px 48px;
+  border-right: 1px solid var(--c3);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.stat-item:last-child { border-right: none; }
+.stat-item.visible { opacity: 1; transform: none; }
+.stat-item.reveal-delay-1 { transition-delay: 0.1s; }
+.stat-item.reveal-delay-2 { transition-delay: 0.2s; }
+.stat-item.reveal-delay-3 { transition-delay: 0.3s; }
+
+.stat-number {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--gold-d);
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--ink-m);
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+}
+
+/* ─── REVEAL ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+
+/* ─── SECTION COMMON ─── */
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 28px; height: 1.5px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.section-heading {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(30px, 3.8vw, 50px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.section-heading em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold-d);
+}
+
+/* ─── SERVICES ─── */
+.services {
+  padding: 120px 80px;
+  background: var(--c1);
+}
+
+.services-header {
+  text-align: center;
+  max-width: 580px;
+  margin: 0 auto 80px;
+}
+.services-header .section-eyebrow { justify-content: center; }
+.services-header .section-eyebrow::before { display: none; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.service-card {
+  background: var(--c0);
+  padding: 48px 44px;
+  position: relative;
+  transition: transform 0.28s cubic-bezier(0.2,0,0,1),
+              box-shadow 0.28s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(26,16,8,0.08), 0 2px 8px rgba(26,16,8,0.04);
+  z-index: 2;
+}
+.service-card:focus-visible { outline: 2px solid var(--gold); }
+
+/* Gold top border accent */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 0.28s ease;
+}
+.service-card:hover::before {
+  background: var(--gold);
+}
+
+.service-num {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+}
+
+.service-icon {
+  width: 28px; height: 28px;
+  color: var(--ink-3);
+  margin-bottom: 18px;
+}
+
+.service-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.service-desc {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--ink-m);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+.service-link {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+.service-link:hover { gap: 12px; color: var(--gold); }
+
+/* ─── PHILOSOPHY ─── */
+.philosophy {
+  padding: 120px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: start;
+  background: var(--c2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background decorative arc */
+.philosophy::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  border: 1px solid rgba(201,163,88,0.12);
+  border-radius: 50%;
+  right: -120px; top: -100px;
+  pointer-events: none;
+}
+
+.philosophy-left { position: relative; z-index: 2; }
+
+.philosophy-quote {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(26px, 3vw, 40px);
+  font-style: italic;
+  line-height: 1.38;
+  color: var(--ink);
+  margin-bottom: 40px;
+  padding-left: 28px;
+  border-left: 3px solid var(--gold);
+}
+
+.philosophy-quote strong {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.philosophy-divider {
+  width: 56px; height: 1.5px;
+  background: var(--gold);
+  margin-bottom: 32px;
+}
+
+.philosophy-sub {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink-m);
+  line-height: 1.82;
+  max-width: 480px;
+}
+
+.values-list { display: flex; flex-direction: column; gap: 0; }
+
+.value-item {
+  display: flex;
+  gap: 28px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--c3);
+}
+.value-item:first-child { border-top: 1px solid var(--c3); }
+
+.value-num {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  flex-shrink: 0;
+  padding-top: 3px;
+}
+
+.value-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.value-desc {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--ink-m);
+  line-height: 1.75;
+}
+
+/* ─── PROCESS ─── */
+.process {
+  padding: 120px 80px;
+  background: var(--c1);
+}
+
+.process-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 80px;
+  gap: 60px;
+}
+
+.process-desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink-m);
+  line-height: 1.8;
+  max-width: 380px;
+  text-align: right;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+/* Connecting line between dots */
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: calc(12.5% + 16px);
+  right: calc(12.5% + 16px);
+  height: 1px;
+  background: var(--c3);
+}
+
+.process-step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 32px 0 0;
+  position: relative;
+}
+
+.step-dot {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--c0);
+  border: 1.5px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  transition: background 0.28s ease, box-shadow 0.28s ease;
+}
+.process-step:hover .step-dot {
+  background: var(--gold-dim);
+  box-shadow: 0 0 0 6px rgba(201,163,88,0.10);
+}
+
+.step-num {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold-d);
+}
+
+.step-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.step-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--ink-m);
+  line-height: 1.75;
+}
+
+/* ─── TESTIMONIALS ─── */
+.testimonials {
+  padding: 120px 80px;
+  background: var(--c0);
+}
+
+.testimonials-header {
+  margin-bottom: 72px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.testimonial-card {
+  background: var(--c1);
+  padding: 52px 44px;
+  position: relative;
+  transition: transform 0.28s cubic-bezier(0.2,0,0,1),
+              box-shadow 0.28s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 44px rgba(26,16,8,0.07), 0 2px 8px rgba(26,16,8,0.04);
+}
+
+.quote-mark {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 80px;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 0.6;
+  margin-bottom: 32px;
+  opacity: 0.6;
+}
+
+.testimonial-text {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 14.5px;
+  font-style: italic;
+  line-height: 1.85;
+  color: var(--ink-2);
+  margin-bottom: 36px;
+}
+
+.testimonial-rule {
+  width: 40px; height: 1.5px;
+  background: var(--gold);
+  margin-bottom: 20px;
+}
+
+.testimonial-author {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+
+.testimonial-role {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--ink-m);
+  margin-top: 4px;
+}
+
+/* ─── CTA ─── */
+.cta-section {
+  padding: 120px 80px;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background decorative circles */
+.cta-section::before {
+  content: '';
+  position: absolute;
+  width: 560px; height: 560px;
+  border: 1px solid rgba(201,163,88,0.10);
+  border-radius: 50%;
+  right: -80px; top: -140px;
+  pointer-events: none;
+}
+.cta-section::after {
+  content: '';
+  position: absolute;
+  width: 380px; height: 380px;
+  border: 1px solid rgba(201,163,88,0.07);
+  border-radius: 50%;
+  right: 60px; bottom: -120px;
+  pointer-events: none;
+}
+
+.cta-left { position: relative; z-index: 2; }
+
+.cta-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cta-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px; height: 1px;
+  background: var(--gold);
+}
+
+.cta-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--c0);
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.cta-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold-l);
+}
+
+.cta-sub {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(244,236,214,0.58);
+  line-height: 1.8;
+  max-width: 460px;
+}
+
+.cta-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.btn-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Jost', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--gold);
+  padding: 16px 40px;
+  text-decoration: none;
+  border-radius: 2px;
+  min-width: 220px;
+  transition: background 0.25s ease, transform 0.2s ease,
+              box-shadow 0.25s ease;
+  box-shadow: 0 4px 20px rgba(201,163,88,0.30);
+}
+.btn-cta-primary:hover {
+  background: var(--gold-l);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(201,163,88,0.38);
+}
+.btn-cta-primary:active { transform: translateY(0); }
+.btn-cta-primary:focus-visible { outline: 2px solid var(--gold-l); outline-offset: 4px; }
+
+.btn-cta-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Jost', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(244,236,214,0.70);
+  background: transparent;
+  padding: 15px 40px;
+  text-decoration: none;
+  border-radius: 2px;
+  min-width: 220px;
+  border: 1.5px solid rgba(244,236,214,0.22);
+  transition: border-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+.btn-cta-outline:hover {
+  border-color: rgba(244,236,214,0.50);
+  color: var(--c0);
+  transform: translateY(-2px);
+}
+.btn-cta-outline:active { transform: translateY(0); }
+.btn-cta-outline:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink-2);
+}
+
+.footer-top {
+  padding: 80px 80px 72px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 56px;
+  border-bottom: 1px solid rgba(244,236,214,0.08);
+}
+
+.footer-logo img {
+  height: 80px; width: auto;
+  margin-bottom: 20px;
+  mix-blend-mode: lighten;
+}
+
+.footer-brand-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(244,236,214,0.45);
+  line-height: 1.75;
+  max-width: 280px;
+}
+
+.footer-col-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(244,236,214,0.48);
+  text-decoration: none;
+  transition: color 0.22s ease;
+}
+.footer-links a:hover { color: rgba(244,236,214,0.85); }
+.footer-links a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.footer-bottom {
+  padding: 24px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copy {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(244,236,214,0.28);
+}
+
+.footer-legal {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.footer-legal a {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(244,236,214,0.28);
+  text-decoration: none;
+  transition: color 0.22s ease;
+}
+.footer-legal a:hover { color: rgba(244,236,214,0.55); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1100px) {
+  nav { padding: 18px 40px; }
+  nav.scrolled { padding: 12px 40px; }
+  .hero { grid-template-columns: 1fr 1fr; }
+  .hero-content { padding: 120px 48px 80px 44px; }
+  .services { padding: 100px 40px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .philosophy { padding: 100px 40px; gap: 60px; }
+  .process { padding: 100px 40px; }
+  .testimonials { padding: 100px 40px; }
+  .cta-section { padding: 100px 40px; }
+  .footer-top { padding: 72px 40px 64px; grid-template-columns: 1fr 1fr; }
+  .footer-bottom { padding: 24px 40px; }
+}
+
+@media (max-width: 860px) {
+  nav { padding: 16px 24px; }
+  nav.scrolled { padding: 12px 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; height: auto; }
+  .hero-photo { height: 55vw; min-height: 320px; }
+  .hero-content { padding: 60px 32px 80px; }
+  .hero-heading { font-size: 38px; }
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--c3); }
+  .stat-item:nth-child(odd) { border-right: 1px solid var(--c3); }
+  .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
+  .services { padding: 80px 24px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .philosophy { padding: 80px 24px; grid-template-columns: 1fr; gap: 56px; }
+  .process { padding: 80px 24px; }
+  .process-header { flex-direction: column; gap: 24px; }
+  .process-desc { text-align: left; }
+  .process-steps { grid-template-columns: 1fr; gap: 36px; }
+  .process-steps::before { display: none; }
+  .testimonials { padding: 80px 24px; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .cta-section { flex-direction: column; padding: 80px 24px; align-items: flex-start; }
+  .cta-right { width: 100%; }
+  .btn-cta-primary, .btn-cta-outline { min-width: auto; width: 100%; }
+  .footer-top { padding: 60px 24px 48px; grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { padding: 20px 24px; flex-direction: column; gap: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <img src="brand_assests/DeLara.png" alt="DeLara Consulting LLC"/>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#testimonials">Clients</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="page-toggle">
+      <a href="index.html" class="toggle-btn">1</a>
+      <a href="landing-2.html" class="toggle-btn">2</a>
+      <a href="landing-3.html" class="toggle-btn">3</a>
+      <a href="landing-4.html" class="toggle-btn active">4</a>
+    </div>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <!-- Decorative circles — positioned over entire hero -->
+  <div class="hero-circle"></div>
+  <div class="hero-circle-inner"></div>
+
+  <!-- Left: photo panel -->
+  <div class="hero-photo">
+    <img
+      src="brand_assests/DeLara2.png"
+      alt="DeLara Consulting — Strategic Excellence"
+    />
+  </div>
+
+  <!-- Right: content panel -->
+  <div class="hero-content">
+    <div class="hero-eyebrow">Strategic Advisory &amp; Consulting</div>
+
+    <h1 class="hero-heading">
+      DeLara<br>
+      <em>Consulting.</em>
+    </h1>
+
+    <div class="hero-rule"></div>
+
+    <p class="hero-tagline">Where Vision<br>Meets Impact.</p>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn-solid">
+        Schedule a Call
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </a>
+      <a href="#services" class="btn-ghost">
+        Our Services
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg>
+      </a>
+    </div>
+
+    <div class="hero-badge">
+      <div class="hero-badge-count">200+</div>
+      <div class="hero-badge-rule"></div>
+      <div class="hero-badge-text">Engagements delivered worldwide</div>
+      <div class="hero-badge-rule"></div>
+      <div class="hero-badge-count">15+</div>
+      <div class="hero-badge-rule"></div>
+      <div class="hero-badge-text">Years of proven expertise</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS BAR ─── -->
+<div class="stats-bar">
+  <div class="stat-item reveal">
+    <div class="stat-number">15+</div>
+    <div class="stat-label">Years of Experience</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-1">
+    <div class="stat-number">200+</div>
+    <div class="stat-label">Engagements Completed</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-2">
+    <div class="stat-number">40+</div>
+    <div class="stat-label">Industries Served</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-3">
+    <div class="stat-number">98%</div>
+    <div class="stat-label">Client Retention Rate</div>
+  </div>
+</div>
+
+<!-- ─── SERVICES ─── -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div class="section-eyebrow">Our Expertise</div>
+    <h2 class="section-heading">Where <em>strategy</em><br>meets execution.</h2>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      <div class="service-name">Strategic Planning</div>
+      <p class="service-desc">We help leadership teams define clear direction, align stakeholders, and build roadmaps that translate vision into measurable outcomes.</p>
+      <a href="#contact" class="service-link">
+        Learn More
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">02</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      <div class="service-name">Operational Excellence</div>
+      <p class="service-desc">From process redesign to performance systems, we identify friction points and implement solutions that drive efficiency at every level.</p>
+      <a href="#contact" class="service-link">
+        Learn More
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">03</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <div class="service-name">Leadership Development</div>
+      <p class="service-desc">Equipping executives and emerging leaders with the tools, frameworks, and confidence to navigate complexity and inspire performance.</p>
+      <a href="#contact" class="service-link">
+        Learn More
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      <div class="service-name">Digital Transformation</div>
+      <p class="service-desc">Guiding organizations through technology adoption — from assessment and selection to change management and value realization.</p>
+      <a href="#contact" class="service-link">
+        Learn More
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">05</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      <div class="service-name">Growth Strategy</div>
+      <p class="service-desc">Market entry, expansion planning, M&amp;A advisory — we build the analytical foundation and strategic clarity to pursue growth with conviction.</p>
+      <a href="#contact" class="service-link">
+        Learn More
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">06</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <div class="service-name">Organizational Design</div>
+      <p class="service-desc">Structuring teams, roles, and governance models to enable accountability, agility, and the high-performance culture your strategy demands.</p>
+      <a href="#contact" class="service-link">
+        Learn More
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PHILOSOPHY ─── -->
+<section class="philosophy" id="about">
+  <div class="philosophy-left">
+    <div class="section-eyebrow">Our Philosophy</div>
+    <div class="philosophy-quote reveal">
+      "Your vision.<br><strong>Our expertise.</strong><br>One enduring result."
+    </div>
+    <div class="philosophy-divider reveal reveal-delay-1"></div>
+    <p class="philosophy-sub reveal reveal-delay-2">At DeLara, we believe the most powerful consulting relationships are built on deep partnership — not just deliverables. We embed with your team, understand your context, and bring the full weight of our experience to bear on what matters most to you.</p>
+  </div>
+
+  <div class="philosophy-right">
+    <div class="values-list">
+      <div class="value-item reveal">
+        <div class="value-num">01</div>
+        <div class="value-content">
+          <div class="value-title">Clarity Over Complexity</div>
+          <p class="value-desc">We distill the complex into the essential — giving leadership teams the clear picture they need to decide and act with confidence.</p>
+        </div>
+      </div>
+      <div class="value-item reveal reveal-delay-1">
+        <div class="value-num">02</div>
+        <div class="value-content">
+          <div class="value-title">Partnership, Not Prescription</div>
+          <p class="value-desc">We don't parachute in with pre-packaged answers. We build real understanding, then co-create solutions that fit your unique context.</p>
+        </div>
+      </div>
+      <div class="value-item reveal reveal-delay-2">
+        <div class="value-num">03</div>
+        <div class="value-content">
+          <div class="value-title">Results That Endure</div>
+          <p class="value-desc">Our measure of success isn't the report we deliver — it's the lasting capability, culture, and competitive advantage we help you build.</p>
+        </div>
+      </div>
+      <div class="value-item reveal reveal-delay-3">
+        <div class="value-num">04</div>
+        <div class="value-content">
+          <div class="value-title">Candor With Care</div>
+          <p class="value-desc">We tell you what you need to hear, not what you want to hear — delivered with the respect and care that a genuine partner deserves.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section class="process" id="process">
+  <div class="process-header">
+    <div>
+      <div class="section-eyebrow">How We Work</div>
+      <h2 class="section-heading" style="margin-bottom:0;">A <em>proven</em> path<br>to impact.</h2>
+    </div>
+    <p class="process-desc">Every engagement follows a disciplined methodology — structured enough to be reliable, flexible enough to meet you where you are.</p>
+  </div>
+
+  <div class="process-steps">
+    <div class="process-step reveal">
+      <div class="step-dot"><span class="step-num">1</span></div>
+      <div class="step-title">Discovery</div>
+      <p class="step-desc">Deep listening and diagnostic work to understand your context, challenges, goals, and the dynamics at play.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-1">
+      <div class="step-dot"><span class="step-num">2</span></div>
+      <div class="step-title">Diagnosis</div>
+      <p class="step-desc">Structured analysis to identify root causes, surface hidden opportunities, and frame the strategic choices you face.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="step-dot"><span class="step-num">3</span></div>
+      <div class="step-title">Design</div>
+      <p class="step-desc">Co-creating strategies, structures, and plans that are ambitious, actionable, and built for your specific context.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="step-dot"><span class="step-num">4</span></div>
+      <div class="step-title">Delivery</div>
+      <p class="step-desc">Hands-on support through implementation — ensuring your plan translates into real outcomes, not just good intentions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-header">
+    <div class="section-eyebrow">Client Voices</div>
+    <h2 class="section-heading">What our <em>partners</em><br>are saying.</h2>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">DeLara didn't just give us a strategy — they gave us the confidence to execute it. Their ability to align our leadership team around a shared direction was transformative.</p>
+      <div class="testimonial-rule"></div>
+      <div class="testimonial-author">Sarah Mitchell</div>
+      <div class="testimonial-role">CEO, Meridian Group</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">Working with DeLara felt like having the most capable advisor in the room. They asked better questions than we had, and their recommendations were both bold and grounded.</p>
+      <div class="testimonial-rule"></div>
+      <div class="testimonial-author">James Okafor</div>
+      <div class="testimonial-role">President, Northbridge Capital</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">In two years of working together, they've helped us double revenue, restructure our organization, and build a leadership team that can take us to the next level.</p>
+      <div class="testimonial-rule"></div>
+      <div class="testimonial-author">Elena Vasquez</div>
+      <div class="testimonial-role">COO, Apex Ventures</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section" id="contact">
+  <div class="cta-left">
+    <div class="cta-eyebrow">Begin the Conversation</div>
+    <p class="cta-title">Ready to begin<br>the <em>conversation?</em></p>
+    <p class="cta-sub">Let's explore what's possible for your organization. No obligations — just a candid, valuable discussion.</p>
+  </div>
+  <div class="cta-right">
+    <a href="mailto:hello@delaraconsulting.com" class="btn-cta-primary">
+      Schedule a Call
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <a href="mailto:hello@delaraconsulting.com" class="btn-cta-outline">
+      Send a Message
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">
+        <img src="brand_assests/DeLara2.png" alt="DeLara Consulting LLC"/>
+      </div>
+      <p class="footer-brand-desc">Partnering with visionary leaders to unlock potential, accelerate growth, and build organizations that endure.</p>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Strategic Planning</a></li>
+        <li><a href="#services">Operational Excellence</a></li>
+        <li><a href="#services">Leadership Development</a></li>
+        <li><a href="#services">Digital Transformation</a></li>
+        <li><a href="#services">Growth Strategy</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#testimonials">Client Stories</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <ul class="footer-links">
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="mailto:hello@delaraconsulting.com">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 DeLara Consulting, LLC. All rights reserved.</p>
+    <ul class="footer-legal">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Use</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
