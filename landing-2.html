@@ -6,37 +6,39 @@
 <title>DeLara Consulting, LLC. — Insight. Integrity.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Great+Vibes&display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --cream:      #F5EDD8;
-  --cream-2:    #EDE0C4;
-  --cream-3:    #E2D0A8;
-  --amber:      #C9922A;
-  --amber-deep: #8C6020;
-  --amber-light:#E8B84A;
-  --copper:     #B07840;
-  --brown:      #3D2810;
-  --brown-2:    #5A3C1A;
-  --white:      #FFFBF2;
-  --muted:      rgba(61,40,16,0.55);
-  --muted-2:    rgba(61,40,16,0.35);
+  --brown:        #3D2810;
+  --brown-2:      #2A1A08;
+  --brown-3:      #4E3318;
+  --brown-4:      #5E3F20;
+  --amber:        #C9922A;
+  --amber-light:  #E0B050;
+  --amber-dim:    #8A6018;
+  --copper:       #B07840;
+  --copper-light: #C89058;
+  --cream:        #F5EDD8;
+  --cream-2:      #EDE0C4;
+  --off-white:    #FFFBF2;
+  --muted:        rgba(245,237,216,0.52);
+  --muted-2:      rgba(245,237,216,0.30);
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--cream);
-  font-family: 'DM Sans', sans-serif;
-  color: var(--brown);
+  background: var(--brown-2);
+  font-family: 'Lato', sans-serif;
+  color: var(--cream);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: var(--cream-2); }
+::-webkit-scrollbar-track { background: var(--brown-2); }
 ::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 3px; }
 
 /* ─── NAV ─── */
@@ -52,14 +54,14 @@ nav {
 }
 
 nav.scrolled {
-  background: rgba(245,237,216,0.97);
-  backdrop-filter: blur(12px);
+  background: rgba(42,26,8,0.96);
+  backdrop-filter: blur(14px);
   padding: 14px 64px;
-  box-shadow: 0 1px 0 rgba(176,120,64,0.2), 0 4px 20px rgba(61,40,16,0.08);
+  box-shadow: 0 1px 0 rgba(201,146,42,0.15), 0 4px 24px rgba(0,0,0,0.4);
 }
 
-.nav-logo img { height: 44px; width: auto; object-fit: contain; }
 .nav-logo { text-decoration: none; }
+.nav-logo img { height: 46px; width: auto; object-fit: contain; }
 
 .nav-links {
   display: flex;
@@ -70,7 +72,7 @@ nav.scrolled {
 
 .nav-links a {
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted);
@@ -86,15 +88,15 @@ nav.scrolled {
   background: var(--amber);
   transition: width 0.3s ease;
 }
-.nav-links a:hover { color: var(--brown); }
+.nav-links a:hover { color: var(--cream); }
 .nav-links a:hover::after { width: 100%; }
 
 .page-toggle {
   display: flex;
   align-items: center;
   gap: 4px;
-  background: rgba(61,40,16,0.06);
-  border: 1px solid rgba(176,120,64,0.25);
+  background: rgba(245,237,216,0.06);
+  border: 1px solid rgba(201,146,42,0.22);
   border-radius: 4px;
   padding: 3px;
 }
@@ -110,319 +112,314 @@ nav.scrolled {
   border-radius: 3px;
   transition: background 0.2s ease, color 0.2s ease;
 }
-.toggle-btn:hover { color: var(--brown); background: rgba(61,40,16,0.08); }
-.toggle-btn.active { background: var(--amber); color: var(--white); }
+.toggle-btn:hover { color: var(--cream); background: rgba(245,237,216,0.08); }
+.toggle-btn.active { background: var(--amber); color: var(--brown-2); }
 
 .nav-cta {
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--white);
-  background: var(--brown);
+  color: var(--brown-2);
+  background: var(--amber);
   padding: 11px 26px;
   text-decoration: none;
   border-radius: 2px;
   transition: background 0.25s ease, transform 0.2s ease;
 }
-.nav-cta:hover { background: var(--brown-2); transform: translateY(-1px); }
+.nav-cta:hover { background: var(--amber-light); transform: translateY(-1px); }
 .nav-cta:active { transform: translateY(0); }
 
 /* ─── HERO ─── */
 .hero {
   min-height: 100vh;
-  background: var(--white);
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  overflow: hidden;
-}
-
-.hero-left {
-  position: relative;
-  background: var(--brown);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 80px 72px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   overflow: hidden;
+  background: var(--brown-2);
 }
 
-.hero-left-texture {
+/* Warm amber radial glow behind the bulb */
+.hero-glow {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 20%, rgba(201,146,42,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 80% at 80% 80%, rgba(176,120,64,0.08) 0%, transparent 55%);
+    radial-gradient(ellipse 65% 70% at 50% 42%, rgba(201,146,42,0.18) 0%, rgba(176,120,64,0.08) 40%, transparent 70%),
+    radial-gradient(ellipse 100% 50% at 50% 100%, rgba(42,26,8,0.9) 0%, transparent 60%);
+  pointer-events: none;
 }
 
-.hero-left-logo {
+.hero-grain {
   position: absolute;
-  top: 48px; left: 72px;
-  right: 72px;
-  display: flex;
-  justify-content: flex-start;
+  inset: 0;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+  pointer-events: none;
 }
 
-.hero-left-logo img {
-  height: 52px;
-  width: auto;
-  object-fit: contain;
-  filter: brightness(1.1);
-}
-
-.hero-tagline {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(48px, 5.5vw, 82px);
-  color: var(--amber-light);
-  line-height: 1.1;
-  margin-bottom: 24px;
-  position: relative;
-  z-index: 2;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
-}
-
-.hero-left-sub {
-  font-family: 'Cormorant', serif;
-  font-size: 16px;
-  font-weight: 300;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(245,237,216,0.55);
-  position: relative;
-  z-index: 2;
-  margin-bottom: 60px;
-  opacity: 0;
-  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
-}
-
-.hero-left-divider {
-  width: 48px; height: 1px;
-  background: var(--amber);
-  margin-bottom: 32px;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-left-copy {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.85;
-  color: rgba(245,237,216,0.65);
-  max-width: 360px;
-  position: relative;
-  z-index: 2;
-  opacity: 0;
-  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.65s forwards;
-}
-
-.hero-right {
-  padding: 140px 72px 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: var(--white);
-  position: relative;
-}
-
-.hero-right::before {
-  content: '';
+/* Decorative arc rings */
+.hero-ring {
   position: absolute;
-  top: 0; left: 0;
-  width: 1px; height: 100%;
-  background: linear-gradient(to bottom, transparent, var(--amber-deep), transparent);
-  opacity: 0.2;
+  border-radius: 50%;
+  border: 1px solid rgba(201,146,42,0.07);
+  pointer-events: none;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
 }
+.hero-ring-1 { width: 500px; height: 500px; }
+.hero-ring-2 { width: 700px; height: 700px; border-color: rgba(201,146,42,0.04); }
+.hero-ring-3 { width: 900px; height: 900px; border-color: rgba(201,146,42,0.025); }
 
 .hero-eyebrow {
   font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.36em;
+  font-weight: 700;
+  letter-spacing: 0.42em;
   text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 32px;
+  color: var(--copper-light);
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
   opacity: 0;
   transform: translateY(14px);
   animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
 }
 
-.hero-headline {
-  font-family: 'Cormorant', serif;
-  font-size: clamp(48px, 5.2vw, 88px);
-  font-weight: 600;
-  line-height: 1.06;
-  letter-spacing: -0.01em;
-  color: var(--brown);
-  margin-bottom: 36px;
+/* The logo as the hero centerpiece */
+.hero-logo-wrap {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 44px;
   opacity: 0;
-  transform: translateY(24px);
-  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.36s forwards;
-}
-.hero-headline em {
-  font-style: italic;
-  color: var(--amber);
+  animation: fadeIn 1.4s ease 0.1s forwards;
 }
 
-.hero-desc {
-  font-size: 15px;
+.hero-logo-wrap img {
+  width: 580px;
+  max-width: 90vw;
+  filter:
+    drop-shadow(0 0 80px rgba(201,146,42,0.35))
+    drop-shadow(0 40px 100px rgba(0,0,0,0.85))
+    brightness(1.05);
+  mask-image: radial-gradient(ellipse 85% 82% at 50% 48%, black 45%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 82% at 50% 48%, black 45%, transparent 100%);
+}
+
+.hero-script {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(52px, 6vw, 90px);
+  color: var(--amber-light);
+  line-height: 1.1;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.45s forwards;
+}
+
+.hero-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(14px, 1.6vw, 22px);
+  font-weight: 400;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 52px;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.6s forwards;
+}
+
+.hero-divider {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--amber), transparent);
+  margin: 0 auto 48px;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeIn 0.8s ease 0.7s forwards;
+}
+
+.hero-sub {
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.85;
   color: var(--muted);
-  max-width: 400px;
-  margin-bottom: 52px;
+  max-width: 500px;
+  margin: 0 auto 52px;
+  position: relative;
+  z-index: 2;
   opacity: 0;
-  transform: translateY(18px);
-  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
+  transform: translateY(16px);
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.72s forwards;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 24px;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
   opacity: 0;
-  transform: translateY(16px);
-  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.62s forwards;
+  transform: translateY(14px);
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.84s forwards;
 }
 
 .btn-primary {
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--white);
-  background: var(--brown);
-  padding: 14px 32px;
+  color: var(--brown-2);
+  background: var(--amber);
+  padding: 14px 36px;
   text-decoration: none;
   border-radius: 2px;
-  transition: background 0.25s ease, transform 0.2s ease;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
 }
-.btn-primary:hover { background: var(--brown-2); transform: translateY(-1px); }
+.btn-primary:hover {
+  background: var(--amber-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(201,146,42,0.35);
+}
+.btn-primary:active { transform: translateY(0); }
 
-.btn-secondary {
+.btn-ghost {
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--amber-deep);
+  color: var(--muted);
   text-decoration: none;
-  border-bottom: 1px solid var(--amber);
-  padding-bottom: 2px;
+  padding: 14px 4px;
+  border-bottom: 1px solid rgba(245,237,216,0.2);
   transition: color 0.25s ease, border-color 0.25s ease;
 }
-.btn-secondary:hover { color: var(--amber); }
+.btn-ghost:hover { color: var(--cream); border-color: var(--amber); }
 
-/* ─── ABOUT STRIP ─── */
-.about-strip {
-  background: var(--cream-2);
-  border-top: 1px solid rgba(176,120,64,0.15);
-  border-bottom: 1px solid rgba(176,120,64,0.15);
-  padding: 56px 64px;
+/* ─── STATS ─── */
+.stats-bar {
+  background: var(--brown-3);
+  border-top: 1px solid rgba(201,146,42,0.12);
+  border-bottom: 1px solid rgba(201,146,42,0.12);
   display: grid;
   grid-template-columns: repeat(4,1fr);
-  gap: 1px;
-  background-image: linear-gradient(var(--cream-2), var(--cream-2));
 }
 
-.strip-item {
-  padding: 0 40px 0 0;
-  border-right: 1px solid rgba(176,120,64,0.15);
+.stat-item {
+  padding: 48px 44px;
+  border-right: 1px solid rgba(201,146,42,0.1);
+  position: relative;
 }
-.strip-item:last-child { border-right: none; padding-right: 0; }
+.stat-item:last-child { border-right: none; }
 
-.strip-num {
-  font-family: 'Cormorant', serif;
+.stat-number {
+  font-family: 'Playfair Display', serif;
   font-size: 48px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--amber);
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
-.strip-label {
+
+.stat-label {
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--muted-2);
 }
 
-/* ─── SERVICES ─── */
-.services {
-  padding: 120px 64px;
-  background: var(--white);
-}
-
-.services-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: end;
-  margin-bottom: 80px;
-}
-
+/* ─── SECTION COMMON ─── */
 .section-eyebrow {
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.36em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--copper-light);
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-eyebrow::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--copper);
+  opacity: 0.6;
 }
 
 .section-title {
-  font-family: 'Cormorant', serif;
-  font-size: clamp(36px, 4vw, 64px);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 3.8vw, 60px);
   font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.01em;
-  color: var(--brown);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin-bottom: 56px;
 }
 .section-title em { font-style: italic; color: var(--amber); }
 
-.services-intro {
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 1.85;
-  color: var(--muted);
-  align-self: end;
-  padding-bottom: 8px;
+/* ─── SERVICES ─── */
+.services {
+  padding: 120px 64px;
+  background: var(--brown-2);
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  gap: 24px;
+  gap: 1px;
+  background: rgba(201,146,42,0.08);
+  border: 1px solid rgba(201,146,42,0.08);
 }
 
 .service-card {
-  padding: 44px 36px;
-  border: 1px solid rgba(176,120,64,0.15);
-  background: var(--white);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  padding: 52px 44px 48px;
+  background: var(--brown-2);
   position: relative;
-}
-.service-card:hover {
-  border-color: var(--amber);
-  box-shadow: 0 8px 40px rgba(61,40,16,0.08);
-  transform: translateY(-3px);
+  overflow: hidden;
+  transition: background 0.3s ease;
 }
 
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--amber), var(--copper));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.service-card:hover { background: var(--brown-3); }
+.service-card:hover::before { transform: scaleX(1); }
+
 .service-num {
-  font-family: 'Cormorant', serif;
-  font-size: 42px;
-  font-weight: 300;
-  color: rgba(201,146,42,0.18);
-  line-height: 1;
-  margin-bottom: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--amber-dim);
+  margin-bottom: 28px;
 }
 
 .service-name {
-  font-family: 'Cormorant', serif;
-  font-size: 22px;
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
   font-weight: 600;
-  color: var(--brown);
-  margin-bottom: 14px;
+  color: var(--cream);
+  margin-bottom: 16px;
+  line-height: 1.25;
 }
 
 .service-desc {
@@ -434,60 +431,61 @@ nav.scrolled {
 }
 
 .service-link {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--amber-deep);
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: gap 0.25s ease;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  text-decoration: none;
+  transition: gap 0.25s ease, opacity 0.25s ease;
 }
-.service-link:hover { gap: 12px; }
+.service-link:hover { gap: 13px; opacity: 0.75; }
 
-/* ─── PHILOSOPHY ─── */
+/* ─── PHILOSOPHY / ABOUT ─── */
 .philosophy {
+  padding: 0;
   background: var(--brown);
-  padding: 120px 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 680px;
+}
+
+.phil-image {
   position: relative;
   overflow: hidden;
 }
 
-.philosophy::before {
-  content: '';
-  position: absolute;
-  top: -100px; right: -100px;
-  width: 600px; height: 600px;
-  border-radius: 50%;
-  border: 1px solid rgba(201,146,42,0.08);
-}
-.philosophy::after {
-  content: '';
-  position: absolute;
-  top: -60px; right: -60px;
-  width: 400px; height: 400px;
-  border-radius: 50%;
-  border: 1px solid rgba(201,146,42,0.06);
+.phil-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.75) saturate(0.9);
 }
 
-.philosophy-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 100px;
-  align-items: start;
-  position: relative;
-  z-index: 2;
+.phil-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 60%, var(--brown) 100%);
+}
+
+.phil-content {
+  padding: 100px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .phil-eyebrow {
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.36em;
   text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 32px;
+  color: var(--copper-light);
+  margin-bottom: 28px;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -495,69 +493,93 @@ nav.scrolled {
 .phil-eyebrow::before {
   content: '';
   width: 24px; height: 1px;
-  background: var(--amber);
+  background: var(--copper);
   opacity: 0.5;
 }
 
-.phil-quote {
-  font-family: 'Cormorant', serif;
-  font-size: clamp(28px, 3vw, 46px);
-  font-weight: 500;
-  font-style: italic;
-  line-height: 1.3;
-  color: var(--cream);
-  margin-bottom: 36px;
-}
-.phil-quote strong {
-  font-style: normal;
+.phil-script {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(36px, 3.5vw, 56px);
   color: var(--amber-light);
+  line-height: 1.2;
+  margin-bottom: 12px;
 }
 
-.phil-sub {
-  font-size: 14px;
+.phil-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 2.8vw, 42px);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--cream);
+  margin-bottom: 32px;
+}
+.phil-title em { font-style: italic; color: var(--amber); }
+
+.phil-divider {
+  width: 48px; height: 2px;
+  background: linear-gradient(to right, var(--amber), var(--copper));
+  margin-bottom: 32px;
+}
+
+.phil-body {
+  font-size: 15px;
   font-weight: 300;
   line-height: 1.9;
-  color: rgba(245,237,216,0.55);
+  color: var(--muted);
+  margin-bottom: 48px;
+  max-width: 440px;
 }
 
 .values-list { display: flex; flex-direction: column; }
 
 .value-item {
-  padding: 28px 0;
-  border-bottom: 1px solid rgba(201,146,42,0.12);
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(201,146,42,0.1);
   display: grid;
-  grid-template-columns: 36px 1fr;
-  gap: 20px;
+  grid-template-columns: 40px 1fr;
+  gap: 16px;
   align-items: start;
 }
 .value-item:first-child { padding-top: 0; }
+.value-item:last-child { border-bottom: none; }
 
 .value-num {
-  font-family: 'Cormorant', serif;
-  font-size: 13px;
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
   font-weight: 400;
   color: var(--amber);
-  opacity: 0.6;
+  opacity: 0.55;
   padding-top: 3px;
+  letter-spacing: 0.05em;
 }
 .value-title {
-  font-family: 'Cormorant', serif;
-  font-size: 19px;
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
   font-weight: 600;
   color: var(--cream);
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 }
 .value-desc {
   font-size: 13px;
   font-weight: 300;
   line-height: 1.8;
-  color: rgba(245,237,216,0.5);
+  color: var(--muted);
 }
 
 /* ─── PROCESS ─── */
 .process {
   padding: 120px 64px;
-  background: var(--cream);
+  background: var(--brown-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.process::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 64px; right: 64px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201,146,42,0.2), transparent);
 }
 
 .process-header {
@@ -565,13 +587,13 @@ nav.scrolled {
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 80px;
-  gap: 40px;
+  gap: 60px;
 }
 
 .process-note {
   font-size: 14px;
   font-weight: 300;
-  line-height: 1.8;
+  line-height: 1.85;
   color: var(--muted);
   max-width: 320px;
   text-align: right;
@@ -580,49 +602,48 @@ nav.scrolled {
 .process-steps {
   display: grid;
   grid-template-columns: repeat(4,1fr);
-  position: relative;
-}
-
-.process-steps::before {
-  content: '';
-  position: absolute;
-  top: 28px; left: 28px; right: 28px;
-  height: 1px;
-  background: linear-gradient(to right, var(--amber), transparent);
-  opacity: 0.2;
+  gap: 1px;
+  background: rgba(201,146,42,0.08);
 }
 
 .process-step {
-  padding: 0 40px 0 0;
-}
-.process-step:last-child { padding-right: 0; }
-
-.step-circle {
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  border: 1px solid var(--amber);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 32px;
+  padding: 48px 40px;
+  background: var(--brown-2);
+  position: relative;
   transition: background 0.3s ease;
 }
-.process-step:hover .step-circle { background: var(--amber); }
-.process-step:hover .step-circle .step-num { color: var(--white); }
+.process-step:hover { background: var(--brown-3); }
 
-.step-num {
-  font-family: 'Cormorant', serif;
-  font-size: 20px;
-  font-weight: 600;
+.step-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  font-weight: 700;
   color: var(--amber);
-  transition: color 0.3s ease;
+  opacity: 0.12;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.step-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--amber);
+  margin-bottom: 24px;
+  position: relative;
+}
+.step-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,146,42,0.3);
 }
 
 .step-title {
-  font-family: 'Cormorant', serif;
-  font-size: 22px;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
   font-weight: 600;
-  color: var(--brown);
+  color: var(--cream);
   margin-bottom: 14px;
 }
 
@@ -636,129 +657,190 @@ nav.scrolled {
 /* ─── TESTIMONIALS ─── */
 .testimonials {
   padding: 120px 64px;
-  background: var(--cream-2);
-  border-top: 1px solid rgba(176,120,64,0.12);
+  background: var(--brown-3);
+  border-top: 1px solid rgba(201,146,42,0.1);
 }
 
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  gap: 32px;
+  gap: 28px;
   margin-top: 56px;
 }
 
 .testimonial-card {
-  padding: 44px 36px;
-  background: var(--white);
-  border-bottom: 3px solid var(--amber);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 48px 40px;
+  background: var(--brown-2);
+  border: 1px solid rgba(201,146,42,0.1);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease;
 }
 .testimonial-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(61,40,16,0.1);
+  border-color: rgba(201,146,42,0.3);
+  transform: translateY(-3px);
 }
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--amber), var(--copper));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.testimonial-card:hover::before { transform: scaleX(1); }
 
 .quote-mark {
-  font-family: 'Cormorant', serif;
-  font-size: 80px;
-  line-height: 0.7;
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  line-height: 0.75;
   color: var(--amber);
-  opacity: 0.2;
+  opacity: 0.18;
   margin-bottom: 24px;
 }
 
 .testimonial-text {
-  font-family: 'Cormorant', serif;
-  font-size: 17px;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
   font-style: italic;
   font-weight: 400;
   line-height: 1.75;
-  color: var(--brown-2);
-  margin-bottom: 32px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+
+.t-divider {
+  width: 28px; height: 1px;
+  background: var(--amber);
+  opacity: 0.4;
+  margin-bottom: 20px;
 }
 
 .testimonial-author {
   font-size: 13px;
-  font-weight: 500;
-  color: var(--brown);
+  font-weight: 700;
+  color: var(--cream);
   margin-bottom: 4px;
+  letter-spacing: 0.04em;
 }
 .testimonial-role {
   font-size: 11px;
   color: var(--muted-2);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 }
 
 /* ─── CTA ─── */
 .cta-section {
-  background: var(--amber);
-  padding: 100px 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 60px;
+  padding: 120px 64px;
+  background: var(--brown);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,146,42,0.07) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.cta-section::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201,146,42,0.2), transparent);
+}
+
+.cta-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--copper-light);
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.cta-script {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(48px, 5.5vw, 80px);
+  color: var(--amber-light);
+  line-height: 1.1;
+  margin-bottom: 12px;
+  position: relative;
 }
 
 .cta-title {
-  font-family: 'Cormorant', serif;
-  font-size: clamp(32px, 4vw, 60px);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 3.5vw, 52px);
   font-weight: 600;
-  line-height: 1.1;
-  color: var(--white);
-  margin-bottom: 16px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin-bottom: 24px;
+  position: relative;
 }
 
 .cta-sub {
   font-size: 15px;
   font-weight: 300;
-  line-height: 1.8;
-  color: rgba(255,251,242,0.75);
-  max-width: 400px;
+  line-height: 1.85;
+  color: var(--muted);
+  max-width: 440px;
+  margin: 0 auto 56px;
+  position: relative;
 }
 
 .cta-buttons {
   display: flex;
-  flex-direction: column;
-  gap: 14px;
-  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
 }
 
-.btn-cta-white {
+.btn-cta {
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--amber-deep);
-  background: var(--white);
-  padding: 14px 36px;
+  color: var(--brown-2);
+  background: var(--amber);
+  padding: 16px 44px;
   text-decoration: none;
   border-radius: 2px;
-  text-align: center;
-  transition: background 0.25s ease, transform 0.2s ease;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
 }
-.btn-cta-white:hover { background: var(--cream); transform: translateY(-1px); }
-
+.btn-cta:hover {
+  background: var(--amber-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(201,146,42,0.3);
+}
 .btn-cta-outline {
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--white);
+  color: var(--muted);
   background: transparent;
-  padding: 13px 36px;
+  padding: 15px 44px;
   text-decoration: none;
-  border: 1px solid rgba(255,251,242,0.4);
+  border: 1px solid rgba(245,237,216,0.18);
   border-radius: 2px;
-  text-align: center;
-  transition: border-color 0.25s ease;
+  transition: border-color 0.25s ease, color 0.25s ease;
 }
-.btn-cta-outline:hover { border-color: var(--white); }
+.btn-cta-outline:hover { border-color: var(--amber); color: var(--cream); }
 
 /* ─── FOOTER ─── */
-footer {
-  background: var(--brown);
-  border-top: 1px solid rgba(201,146,42,0.15);
-}
+footer { background: var(--brown-2); border-top: 1px solid rgba(201,146,42,0.1); }
 
 .footer-top {
   display: grid;
@@ -771,36 +853,30 @@ footer {
   height: 40px;
   width: auto;
   margin-bottom: 20px;
-  filter: brightness(1.1);
 }
 
 .footer-brand-desc {
   font-size: 13px;
   font-weight: 300;
   line-height: 1.8;
-  color: rgba(245,237,216,0.4);
+  color: var(--muted-2);
   max-width: 280px;
 }
 
 .footer-col-title {
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--amber);
   margin-bottom: 22px;
 }
 
-.footer-links {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 .footer-links a {
   font-size: 13px;
   font-weight: 300;
-  color: rgba(245,237,216,0.4);
+  color: var(--muted-2);
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -808,27 +884,18 @@ footer {
 
 .footer-bottom {
   padding: 24px 64px;
-  border-top: 1px solid rgba(201,146,42,0.1);
+  border-top: 1px solid rgba(201,146,42,0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.footer-copy {
-  font-size: 12px;
-  font-weight: 300;
-  color: rgba(245,237,216,0.3);
-}
+.footer-copy { font-size: 12px; font-weight: 300; color: var(--muted-2); }
 
-.footer-legal {
-  list-style: none;
-  display: flex;
-  gap: 28px;
-}
+.footer-legal { list-style: none; display: flex; gap: 28px; }
 .footer-legal a {
-  font-size: 12px;
-  font-weight: 300;
-  color: rgba(245,237,216,0.3);
+  font-size: 12px; font-weight: 300;
+  color: var(--muted-2);
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -845,9 +912,8 @@ footer {
 .reveal-delay-2 { transition-delay: 0.24s; }
 .reveal-delay-3 { transition-delay: 0.36s; }
 
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { to { opacity: 1; } }
 
 a:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
 </style>
@@ -875,59 +941,55 @@ a:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
 
 <!-- ─── HERO ─── -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-left-texture"></div>
-    <div class="hero-left-logo">
-      <img src="brand_assests/logo1.png" alt="DeLara Consulting LLC"/>
-    </div>
-    <p class="hero-tagline">Insight.<br>Integrity.</p>
-    <p class="hero-left-sub">DeLara Consulting, LLC.</p>
-    <div class="hero-left-divider"></div>
-    <p class="hero-left-copy">Fifteen years of partnering with visionary leaders to turn complex challenges into lasting competitive advantage.</p>
+  <div class="hero-glow"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-ring hero-ring-1"></div>
+  <div class="hero-ring hero-ring-2"></div>
+  <div class="hero-ring hero-ring-3"></div>
+
+  <div class="hero-eyebrow">Strategic Advisory &amp; Consulting</div>
+
+  <div class="hero-logo-wrap">
+    <img src="brand_assests/logo1.png" alt="DeLara Consulting, LLC"/>
   </div>
 
-  <div class="hero-right">
-    <div class="hero-eyebrow">Strategic Advisory</div>
-    <h1 class="hero-headline">
-      Where bold<br><em>vision</em> meets<br>proven expertise.
-    </h1>
-    <p class="hero-desc">We partner with ambitious organizations to transform complexity into clarity — delivering strategies that endure and results that matter.</p>
-    <div class="hero-actions">
-      <a href="#services" class="btn-primary">Explore Our Work</a>
-      <a href="#contact" class="btn-secondary">Schedule a Call →</a>
-    </div>
+  <p class="hero-script">Insight. Integrity.</p>
+  <p class="hero-headline">DeLara Consulting, LLC. — Your Vision. Our Expertise.</p>
+
+  <div class="hero-divider"></div>
+
+  <p class="hero-sub">We partner with ambitious organizations to transform complexity into clarity — delivering strategies that endure and results that matter.</p>
+
+  <div class="hero-actions">
+    <a href="#services" class="btn-primary">Explore Our Work →</a>
+    <a href="#contact" class="btn-ghost">Schedule a Call</a>
   </div>
 </section>
 
 <!-- ─── STATS ─── -->
-<div class="about-strip">
-  <div class="strip-item reveal">
-    <div class="strip-num">15+</div>
-    <div class="strip-label">Years of Experience</div>
+<div class="stats-bar">
+  <div class="stat-item reveal">
+    <div class="stat-number">15+</div>
+    <div class="stat-label">Years of Experience</div>
   </div>
-  <div class="strip-item reveal reveal-delay-1">
-    <div class="strip-num">200+</div>
-    <div class="strip-label">Engagements Completed</div>
+  <div class="stat-item reveal reveal-delay-1">
+    <div class="stat-number">200+</div>
+    <div class="stat-label">Engagements Completed</div>
   </div>
-  <div class="strip-item reveal reveal-delay-2">
-    <div class="strip-num">40+</div>
-    <div class="strip-label">Industries Served</div>
+  <div class="stat-item reveal reveal-delay-2">
+    <div class="stat-number">40+</div>
+    <div class="stat-label">Industries Served</div>
   </div>
-  <div class="strip-item reveal reveal-delay-3">
-    <div class="strip-num">98%</div>
-    <div class="strip-label">Client Retention Rate</div>
+  <div class="stat-item reveal reveal-delay-3">
+    <div class="stat-number">98%</div>
+    <div class="stat-label">Client Retention Rate</div>
   </div>
 </div>
 
 <!-- ─── SERVICES ─── -->
 <section class="services" id="services">
-  <div class="services-header">
-    <div>
-      <div class="section-eyebrow">Our Expertise</div>
-      <h2 class="section-title">Where <em>strategy</em><br>meets execution.</h2>
-    </div>
-    <p class="services-intro">From boardroom to frontline, we bring the clarity and conviction to turn strategy into results that last.</p>
-  </div>
+  <div class="section-eyebrow">Our Expertise</div>
+  <h2 class="section-title">Where <em>strategy</em><br>meets execution.</h2>
 
   <div class="services-grid">
     <div class="service-card reveal">
@@ -971,39 +1033,42 @@ a:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
 
 <!-- ─── PHILOSOPHY ─── -->
 <section class="philosophy" id="about">
-  <div class="philosophy-inner">
-    <div>
-      <div class="phil-eyebrow">Our Philosophy</div>
-      <p class="phil-quote">"Your vision.<br><strong>Our expertise.</strong><br>One result."</p>
-      <p class="phil-sub">At DeLara, we believe the most powerful consulting relationships are built on deep partnership — not just deliverables. We embed with your team, understand your context, and bring the full weight of our experience to bear on what matters most to you.</p>
-    </div>
+  <div class="phil-image">
+    <img src="brand_assests/logo1.png" alt="DeLara Consulting"/>
+  </div>
+  <div class="phil-content">
+    <div class="phil-eyebrow">Our Philosophy</div>
+    <p class="phil-script">Insight. Integrity.</p>
+    <h2 class="phil-title">Your vision.<br><em>Our expertise.</em><br>One result.</h2>
+    <div class="phil-divider"></div>
+    <p class="phil-body">At DeLara, we believe the most powerful consulting relationships are built on deep partnership — not just deliverables. We embed with your team, understand your context, and bring the full weight of our experience to bear on what matters most.</p>
     <div class="values-list">
       <div class="value-item reveal">
         <div class="value-num">01</div>
         <div>
           <div class="value-title">Clarity Over Complexity</div>
-          <p class="value-desc">We distill the complex into the essential — giving leadership teams the clear picture they need to decide and act with confidence.</p>
+          <p class="value-desc">Distilling the essential so leaders can decide and act with confidence.</p>
         </div>
       </div>
       <div class="value-item reveal reveal-delay-1">
         <div class="value-num">02</div>
         <div>
           <div class="value-title">Partnership, Not Prescription</div>
-          <p class="value-desc">We don't parachute in with pre-packaged answers. We build real understanding, then co-create solutions that fit your unique context.</p>
+          <p class="value-desc">Co-creating solutions built for your context — not pre-packaged answers.</p>
         </div>
       </div>
       <div class="value-item reveal reveal-delay-2">
         <div class="value-num">03</div>
         <div>
           <div class="value-title">Results That Endure</div>
-          <p class="value-desc">Our measure of success isn't the report we deliver — it's the lasting capability, culture, and competitive advantage we help you build.</p>
+          <p class="value-desc">Lasting capability and competitive advantage — not just a report on a shelf.</p>
         </div>
       </div>
       <div class="value-item reveal reveal-delay-3">
         <div class="value-num">04</div>
         <div>
           <div class="value-title">Candor With Care</div>
-          <p class="value-desc">We tell you what you need to hear, not what you want to hear — delivered with the respect and care that a genuine partner deserves.</p>
+          <p class="value-desc">What you need to hear, delivered with genuine respect and partnership.</p>
         </div>
       </div>
     </div>
@@ -1019,24 +1084,29 @@ a:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
     </div>
     <p class="process-note">Every engagement follows a disciplined methodology — structured enough to be reliable, flexible enough to meet you where you are.</p>
   </div>
+
   <div class="process-steps">
     <div class="process-step reveal">
-      <div class="step-circle"><span class="step-num">1</span></div>
+      <div class="step-number">1</div>
+      <div class="step-dot"></div>
       <div class="step-title">Discovery</div>
       <p class="step-desc">Deep listening and diagnostic work to understand your context, challenges, goals, and the dynamics at play.</p>
     </div>
     <div class="process-step reveal reveal-delay-1">
-      <div class="step-circle"><span class="step-num">2</span></div>
+      <div class="step-number">2</div>
+      <div class="step-dot"></div>
       <div class="step-title">Diagnosis</div>
       <p class="step-desc">Structured analysis to identify root causes, surface hidden opportunities, and frame the strategic choices you face.</p>
     </div>
     <div class="process-step reveal reveal-delay-2">
-      <div class="step-circle"><span class="step-num">3</span></div>
+      <div class="step-number">3</div>
+      <div class="step-dot"></div>
       <div class="step-title">Design</div>
       <p class="step-desc">Co-creating strategies, structures, and plans that are ambitious, actionable, and built for your specific context.</p>
     </div>
     <div class="process-step reveal reveal-delay-3">
-      <div class="step-circle"><span class="step-num">4</span></div>
+      <div class="step-number">4</div>
+      <div class="step-dot"></div>
       <div class="step-title">Delivery</div>
       <p class="step-desc">Hands-on support through implementation — ensuring your plan translates into real outcomes, not just good intentions.</p>
     </div>
@@ -1047,22 +1117,26 @@ a:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
 <section class="testimonials" id="testimonials">
   <div class="section-eyebrow">Client Voices</div>
   <h2 class="section-title">What our <em>partners</em><br>are saying.</h2>
+
   <div class="testimonials-grid">
     <div class="testimonial-card reveal">
       <div class="quote-mark">"</div>
-      <p class="testimonial-text">DeLara didn't just give us a strategy — they gave us the confidence to execute it. Their ability to align our leadership team was transformative.</p>
+      <p class="testimonial-text">DeLara didn't just give us a strategy — they gave us the confidence to execute it. Their ability to align our leadership team around a shared direction was transformative.</p>
+      <div class="t-divider"></div>
       <div class="testimonial-author">Sarah Mitchell</div>
       <div class="testimonial-role">CEO, Meridian Group</div>
     </div>
     <div class="testimonial-card reveal reveal-delay-1">
       <div class="quote-mark">"</div>
-      <p class="testimonial-text">Working with DeLara felt like having the most capable advisor in the room. They asked better questions than we had.</p>
+      <p class="testimonial-text">Working with DeLara felt like having the most capable advisor in the room. They asked better questions than we had, and their recommendations were bold and grounded.</p>
+      <div class="t-divider"></div>
       <div class="testimonial-author">James Okafor</div>
       <div class="testimonial-role">President, Northbridge Capital</div>
     </div>
     <div class="testimonial-card reveal reveal-delay-2">
       <div class="quote-mark">"</div>
-      <p class="testimonial-text">In two years of working together, they've helped us double revenue, restructure our organization, and build a leadership team that can take us to the next level.</p>
+      <p class="testimonial-text">In two years of working together, they've helped us double revenue, restructure our organization, and build a leadership team ready for the next level.</p>
+      <div class="t-divider"></div>
       <div class="testimonial-author">Elena Vasquez</div>
       <div class="testimonial-role">COO, Apex Ventures</div>
     </div>
@@ -1071,12 +1145,12 @@ a:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
 
 <!-- ─── CTA ─── -->
 <section class="cta-section" id="contact">
-  <div>
-    <p class="cta-title">Ready to begin<br>the conversation?</p>
-    <p class="cta-sub">Let's explore what's possible for your organization. No obligations — just a candid, valuable discussion.</p>
-  </div>
+  <div class="cta-eyebrow">Start the Conversation</div>
+  <p class="cta-script">Ready to begin?</p>
+  <h2 class="cta-title">Let's explore what's possible<br>for your organization.</h2>
+  <p class="cta-sub">No obligations — just a candid, valuable discussion about your goals and how we can help you achieve them.</p>
   <div class="cta-buttons">
-    <a href="mailto:hello@delaraconsulting.com" class="btn-cta-white">Schedule a Call</a>
+    <a href="mailto:hello@delaraconsulting.com" class="btn-cta">Schedule a Call</a>
     <a href="mailto:hello@delaraconsulting.com" class="btn-cta-outline">Send a Message</a>
   </div>
 </section>
