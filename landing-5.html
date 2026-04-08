@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DeLara Consulting, LLC. — Your Vision. Our Expertise.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --dark:         #0F0D0B;
+  --dark-2:       #181410;
+  --dark-3:       #221D16;
+  --dark-4:       #2C2520;
+  --gold:         #C9A358;
+  --gold-deep:    #8C6D3C;
+  --gold-bright:  #E8C97A;
+  --gold-dim:     #6A5228;
+  --cyan:         #00D2FF;
+  --green:        #00E855;
+  --magenta:      #FF2EC4;
+  --white:        #F4EEE0;
+  --muted:        rgba(244,238,224,0.50);
+  --muted-2:      rgba(244,238,224,0.28);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--dark);
+  font-family: 'Lato', sans-serif;
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 3px; }
+
+/* ─── NAVIGATION ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+}
+
+nav.scrolled {
+  background: rgba(15,13,11,0.94);
+  backdrop-filter: blur(14px);
+  padding: 12px 64px;
+  box-shadow: 0 1px 0 rgba(201,163,88,0.12), 0 4px 24px rgba(0,0,0,0.4);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav-logo img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--cyan);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover { color: var(--white); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dark);
+  background: var(--gold);
+  padding: 11px 26px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  box-shadow: 0 0 0 rgba(0,210,255,0);
+}
+
+.nav-cta:hover {
+  background: var(--gold-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(201,163,88,0.3);
+}
+.nav-cta:active { transform: translateY(0); }
+
+/* ─── PAGE TOGGLE ─── */
+.page-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(244,238,224,0.07);
+  border: 1px solid rgba(201,163,88,0.2);
+  border-radius: 4px;
+  padding: 3px;
+}
+.toggle-btn {
+  width: 30px; height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.toggle-btn:hover { color: var(--white); background: rgba(244,238,224,0.1); }
+.toggle-btn.active { background: var(--gold); color: var(--dark); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  overflow: hidden;
+  background: var(--dark);
+}
+
+.hero-bg-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 75% 50%, rgba(0,210,255,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 20% 70%, rgba(201,163,88,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 80% at 50% 100%, rgba(15,13,11,0.9) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px;
+  pointer-events: none;
+}
+
+.hero-left {
+  padding: 140px 64px 100px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 28px; height: 1px;
+  background: var(--cyan);
+  opacity: 0.6;
+}
+
+.hero-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(46px, 5.5vw, 88px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.38s forwards;
+}
+
+.hero-headline em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-headline .script-accent {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.15em;
+  color: var(--gold-bright);
+  font-weight: 400;
+}
+
+.hero-sub {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 440px;
+  margin-bottom: 52px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.54s forwards;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.68s forwards;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dark);
+  background: var(--gold);
+  padding: 14px 32px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+.btn-primary:hover {
+  background: var(--gold-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201,163,88,0.3);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 14px 4px;
+  border-bottom: 1px solid rgba(244,238,224,0.2);
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.btn-ghost:hover { color: var(--white); border-color: var(--gold); }
+
+.hero-right {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 40px 60px;
+  opacity: 0;
+  animation: fadeIn 1.2s ease 0.5s forwards;
+}
+
+.hero-logo-img {
+  width: 100%;
+  max-width: 580px;
+  border-radius: 16px;
+  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.95)) drop-shadow(0 0 60px rgba(0,210,255,0.08)) brightness(0.92) contrast(1.05);
+  mask-image: radial-gradient(ellipse 88% 88% at 50% 50%, black 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 88% 88% at 50% 50%, black 55%, transparent 100%);
+}
+
+.hero-neon-line {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 180px;
+  background: linear-gradient(to bottom, transparent, var(--cyan), transparent);
+  opacity: 0.4;
+}
+
+/* ─── STATS BAR ─── */
+.stats-bar {
+  background: var(--dark-3);
+  border-top: 1px solid rgba(201,163,88,0.1);
+  border-bottom: 1px solid rgba(201,163,88,0.1);
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+
+.stat-item {
+  padding: 44px 40px;
+  border-right: 1px solid rgba(201,163,88,0.1);
+  position: relative;
+}
+.stat-item:last-child { border-right: none; }
+
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+.stat-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 40px; right: 40px;
+  height: 2px;
+  background: linear-gradient(to right, var(--cyan), var(--green));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.stat-item.visible::after { transform: scaleX(1); }
+
+/* ─── SECTION COMMON ─── */
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-eyebrow::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 3.8vw, 60px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 56px;
+}
+.section-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ─── SERVICES ─── */
+.services {
+  padding: 120px 64px;
+  background: var(--dark-2);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1px;
+  background: rgba(201,163,88,0.08);
+  border: 1px solid rgba(201,163,88,0.08);
+}
+
+.service-card {
+  padding: 48px 40px 44px;
+  background: var(--dark-2);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--green));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.service-card:hover { background: var(--dark-3); }
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--gold-dim);
+  margin-bottom: 28px;
+}
+
+.service-icon {
+  width: 28px; height: 28px;
+  stroke: var(--gold);
+  margin-bottom: 20px;
+}
+
+.service-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.service-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  text-decoration: none;
+  transition: gap 0.25s ease, opacity 0.25s ease;
+}
+.service-link:hover { gap: 12px; opacity: 0.8; }
+
+/* ─── PHILOSOPHY ─── */
+.philosophy {
+  padding: 120px 64px;
+  background: var(--dark);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  position: relative;
+  overflow: hidden;
+}
+
+.philosophy::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,210,255,0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.philosophy-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 2.8vw, 40px);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--white);
+  margin-bottom: 36px;
+}
+.philosophy-quote strong { color: var(--gold); }
+
+.philosophy-divider {
+  width: 60px; height: 2px;
+  background: linear-gradient(to right, var(--cyan), var(--green));
+  margin-bottom: 32px;
+}
+
+.philosophy-sub {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--muted);
+  max-width: 480px;
+}
+
+.values-list { display: flex; flex-direction: column; gap: 0; }
+
+.value-item {
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(201,163,88,0.1);
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.value-item:first-child { padding-top: 0; }
+
+.value-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold-dim);
+  letter-spacing: 0.1em;
+  padding-top: 4px;
+}
+
+.value-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.value-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* ─── PROCESS ─── */
+.process {
+  padding: 120px 64px;
+  background: var(--dark-3);
+  border-top: 1px solid rgba(201,163,88,0.08);
+  border-bottom: 1px solid rgba(201,163,88,0.08);
+}
+
+.process-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 72px;
+  gap: 40px;
+}
+
+.process-desc {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 360px;
+  text-align: right;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1px;
+  background: rgba(201,163,88,0.08);
+}
+
+.process-step {
+  padding: 40px 36px;
+  background: var(--dark-3);
+  position: relative;
+}
+
+.step-dot {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,163,88,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.process-step:hover .step-dot {
+  border-color: var(--cyan);
+  box-shadow: 0 0 16px rgba(0,210,255,0.2);
+}
+
+.step-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.step-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+
+.step-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* ─── TESTIMONIALS ─── */
+.testimonials {
+  padding: 120px 64px;
+  background: var(--dark);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 28px;
+  margin-top: 56px;
+}
+
+.testimonial-card {
+  padding: 44px 40px;
+  background: var(--dark-3);
+  border: 1px solid rgba(201,163,88,0.1);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial-card:hover {
+  border-color: rgba(0,210,255,0.2);
+  box-shadow: 0 0 40px rgba(0,210,255,0.05);
+}
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--magenta), var(--cyan));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.testimonial-card:hover::before { opacity: 1; }
+
+.quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  line-height: 0.8;
+  color: var(--gold);
+  opacity: 0.25;
+  margin-bottom: 24px;
+}
+
+.testimonial-text {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.testimonial-rule {
+  width: 32px; height: 1px;
+  background: linear-gradient(to right, var(--cyan), var(--green));
+  margin-bottom: 20px;
+}
+
+.testimonial-author {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.testimonial-role {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--muted-2);
+}
+
+/* ─── CTA ─── */
+.cta-section {
+  padding: 100px 64px;
+  background: var(--dark-2);
+  border-top: 1px solid rgba(201,163,88,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 0% 50%, rgba(201,163,88,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 3.5vw, 52px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.cta-sub {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 400px;
+}
+
+.cta-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dark);
+  background: var(--gold);
+  padding: 14px 36px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+.btn-white:hover { background: var(--gold-bright); transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: transparent;
+  padding: 13px 36px;
+  text-decoration: none;
+  border: 1px solid rgba(201,163,88,0.4);
+  border-radius: 2px;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold-bright); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--dark);
+  border-top: 1px solid rgba(201,163,88,0.1);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding: 72px 64px 60px;
+}
+
+.footer-logo img {
+  height: 44px;
+  width: auto;
+  margin-bottom: 20px;
+}
+
+.footer-brand-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted-2);
+  max-width: 280px;
+}
+
+.footer-col-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muted-2);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-links a:hover { color: var(--gold); }
+
+.footer-bottom {
+  padding: 24px 64px;
+  border-top: 1px solid rgba(201,163,88,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copy {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muted-2);
+}
+
+.footer-legal {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.footer-legal a {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muted-2);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-legal a:hover { color: var(--gold); }
+
+/* ─── SCROLL REVEAL ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* ─── FOCUS VISIBLE ─── */
+a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <img src="brand_assests/logo1.png" alt="DeLara Consulting LLC"/>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#testimonials">Clients</a></li>
+  </ul>
+  <div class="page-toggle">
+    <a href="index.html" class="toggle-btn">1</a>
+    <a href="landing-2.html" class="toggle-btn">2</a>
+    <a href="landing-3.html" class="toggle-btn">3</a>
+    <a href="landing-4.html" class="toggle-btn">4</a>
+    <a href="landing-5.html" class="toggle-btn active">5</a>
+  </div>
+  <a href="#contact" class="nav-cta">Get in Touch</a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-bg-glow"></div>
+  <div class="hero-grain"></div>
+
+  <div class="hero-left">
+    <div class="hero-eyebrow">Strategic Advisory &amp; Consulting</div>
+
+    <h1 class="hero-headline">
+      Your Vision.<br>
+      <em>Our</em> <span class="script-accent">Expertise.</span>
+    </h1>
+
+    <p class="hero-sub">We partner with ambitious organizations to transform complexity into clarity — delivering strategies that endure and results that matter.</p>
+
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">
+        Explore Our Work
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#contact" class="btn-ghost">
+        Schedule a Call
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-neon-line"></div>
+    <img class="hero-logo-img" src="brand_assests/logo1.png" alt="DeLara Consulting"/>
+  </div>
+</section>
+
+<!-- ─── STATS BAR ─── -->
+<div class="stats-bar">
+  <div class="stat-item reveal">
+    <div class="stat-number">15+</div>
+    <div class="stat-label">Years of Experience</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-1">
+    <div class="stat-number">200+</div>
+    <div class="stat-label">Engagements Completed</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-2">
+    <div class="stat-number">40+</div>
+    <div class="stat-label">Industries Served</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-3">
+    <div class="stat-number">98%</div>
+    <div class="stat-label">Client Retention Rate</div>
+  </div>
+</div>
+
+<!-- ─── SERVICES ─── -->
+<section class="services" id="services">
+  <div class="section-eyebrow">Our Expertise</div>
+  <h2 class="section-title">Where <em>strategy</em><br>meets execution.</h2>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+      </svg>
+      <div class="service-name">Strategic Planning</div>
+      <p class="service-desc">We help leadership teams define clear direction, align stakeholders, and build roadmaps that translate vision into measurable outcomes.</p>
+      <a href="#contact" class="service-link">
+        Learn More
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">02</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+      </svg>
+      <div class="service-name">Operational Excellence</div>
+      <p class="service-desc">From process redesign to performance systems, we identify friction points and implement solutions that drive efficiency at every level.</p>
+      <a href="#contact" class="service-link">
+        Learn More
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">03</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+      <div class="service-name">Leadership Development</div>
+      <p class="service-desc">Equipping executives and emerging leaders with the tools, frameworks, and confidence to navigate complexity and inspire performance.</p>
+      <a href="#contact" class="service-link">
+        Learn More
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+      </svg>
+      <div class="service-name">Digital Transformation</div>
+      <p class="service-desc">Guiding organizations through technology adoption — from assessment and selection to change management and value realization.</p>
+      <a href="#contact" class="service-link">
+        Learn More
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">05</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+      </svg>
+      <div class="service-name">Growth Strategy</div>
+      <p class="service-desc">Market entry, expansion planning, M&amp;A advisory — we build the analytical foundation and strategic clarity to pursue growth with conviction.</p>
+      <a href="#contact" class="service-link">
+        Learn More
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">06</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+      </svg>
+      <div class="service-name">Organizational Design</div>
+      <p class="service-desc">Structuring teams, roles, and governance models to enable accountability, agility, and the high-performance culture your strategy demands.</p>
+      <a href="#contact" class="service-link">
+        Learn More
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PHILOSOPHY ─── -->
+<section class="philosophy" id="about">
+  <div class="philosophy-left">
+    <div class="section-eyebrow">Our Philosophy</div>
+    <div class="philosophy-quote reveal">
+      "Your vision.<br><strong>Our expertise.</strong><br>One result."
+    </div>
+    <div class="philosophy-divider reveal reveal-delay-1"></div>
+    <p class="philosophy-sub reveal reveal-delay-2">At DeLara, we believe the most powerful consulting relationships are built on deep partnership — not just deliverables. We embed with your team, understand your context, and bring the full weight of our experience to bear on what matters most to you.</p>
+  </div>
+
+  <div class="philosophy-right">
+    <div class="values-list">
+      <div class="value-item reveal">
+        <div class="value-num">01</div>
+        <div class="value-content">
+          <div class="value-title">Clarity Over Complexity</div>
+          <p class="value-desc">We distill the complex into the essential — giving leadership teams the clear picture they need to decide and act with confidence.</p>
+        </div>
+      </div>
+      <div class="value-item reveal reveal-delay-1">
+        <div class="value-num">02</div>
+        <div class="value-content">
+          <div class="value-title">Partnership, Not Prescription</div>
+          <p class="value-desc">We don't parachute in with pre-packaged answers. We build real understanding, then co-create solutions that fit your unique context.</p>
+        </div>
+      </div>
+      <div class="value-item reveal reveal-delay-2">
+        <div class="value-num">03</div>
+        <div class="value-content">
+          <div class="value-title">Results That Endure</div>
+          <p class="value-desc">Our measure of success isn't the report we deliver — it's the lasting capability, culture, and competitive advantage we help you build.</p>
+        </div>
+      </div>
+      <div class="value-item reveal reveal-delay-3">
+        <div class="value-num">04</div>
+        <div class="value-content">
+          <div class="value-title">Candor With Care</div>
+          <p class="value-desc">We tell you what you need to hear, not what you want to hear — delivered with the respect and care that a genuine partner deserves.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section class="process" id="process">
+  <div class="process-header">
+    <div>
+      <div class="section-eyebrow">How We Work</div>
+      <h2 class="section-title" style="margin-bottom:0;">A <em>proven</em> path<br>to impact.</h2>
+    </div>
+    <p class="process-desc">Every engagement follows a disciplined methodology — structured enough to be reliable, flexible enough to meet you where you are.</p>
+  </div>
+
+  <div class="process-steps">
+    <div class="process-step reveal">
+      <div class="step-dot"><span class="step-num">1</span></div>
+      <div class="step-title">Discovery</div>
+      <p class="step-desc">Deep listening and diagnostic work to understand your context, challenges, goals, and the dynamics at play.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-1">
+      <div class="step-dot"><span class="step-num">2</span></div>
+      <div class="step-title">Diagnosis</div>
+      <p class="step-desc">Structured analysis to identify root causes, surface hidden opportunities, and frame the strategic choices you face.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="step-dot"><span class="step-num">3</span></div>
+      <div class="step-title">Design</div>
+      <p class="step-desc">Co-creating strategies, structures, and plans that are ambitious, actionable, and built for your specific context.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="step-dot"><span class="step-num">4</span></div>
+      <div class="step-title">Delivery</div>
+      <p class="step-desc">Hands-on support through implementation — ensuring your plan translates into real outcomes, not just good intentions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="testimonials" id="testimonials">
+  <div class="section-eyebrow">Client Voices</div>
+  <h2 class="section-title">What our <em>partners</em><br>are saying.</h2>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">DeLara didn't just give us a strategy — they gave us the confidence to execute it. Their ability to align our leadership team around a shared direction was transformative.</p>
+      <div class="testimonial-rule"></div>
+      <div class="testimonial-author">Sarah Mitchell</div>
+      <div class="testimonial-role">CEO, Meridian Group</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">Working with DeLara felt like having the most capable advisor in the room. They asked better questions than we had, and their recommendations were both bold and grounded.</p>
+      <div class="testimonial-rule"></div>
+      <div class="testimonial-author">James Okafor</div>
+      <div class="testimonial-role">President, Northbridge Capital</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">In two years of working together, they've helped us double revenue, restructure our organization, and build a leadership team that can take us to the next level.</p>
+      <div class="testimonial-rule"></div>
+      <div class="testimonial-author">Elena Vasquez</div>
+      <div class="testimonial-role">COO, Apex Ventures</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section" id="contact">
+  <div class="cta-left">
+    <p class="cta-title">Ready to begin<br>the conversation?</p>
+    <p class="cta-sub">Let's explore what's possible for your organization. No obligations — just a candid, valuable discussion.</p>
+  </div>
+  <div class="cta-right">
+    <a href="mailto:hello@delaraconsulting.com" class="btn-white">Schedule a Call</a>
+    <a href="mailto:hello@delaraconsulting.com" class="btn-outline">Send a Message</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">
+        <img src="brand_assests/logo1.png" alt="DeLara Consulting LLC"/>
+      </div>
+      <p class="footer-brand-desc">Partnering with visionary leaders to unlock potential, accelerate growth, and build organizations that endure.</p>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Strategic Planning</a></li>
+        <li><a href="#services">Operational Excellence</a></li>
+        <li><a href="#services">Leadership Development</a></li>
+        <li><a href="#services">Digital Transformation</a></li>
+        <li><a href="#services">Growth Strategy</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#testimonials">Client Stories</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <ul class="footer-links">
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="mailto:hello@delaraconsulting.com">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 DeLara Consulting, LLC. All rights reserved.</p>
+    <ul class="footer-legal">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Use</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

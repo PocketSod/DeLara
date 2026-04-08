@@ -3,1106 +3,1221 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>DeLara Consulting, LLC. — Your Vision. Our Expertise.</title>
+<title>DeLara Consulting, LLC. — Illuminate. Align. Execute.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --dark:         #0F0D0B;
-  --dark-2:       #181410;
-  --dark-3:       #221D16;
-  --dark-4:       #2C2520;
-  --gold:         #C9A358;
-  --gold-deep:    #8C6D3C;
-  --gold-bright:  #E8C97A;
-  --gold-dim:     #6A5228;
-  --cyan:         #00D2FF;
-  --green:        #00E855;
-  --magenta:      #FF2EC4;
-  --white:        #F4EEE0;
-  --muted:        rgba(244,238,224,0.50);
-  --muted-2:      rgba(244,238,224,0.28);
+  /* Derived directly from Logo2.png */
+  --red:          #BF3020;   /* DeLara wordmark red */
+  --red-deep:     #8C1F10;
+  --red-bright:   #D94030;
+  --red-dim:      rgba(191,48,32,0.12);
+  --red-glow:     rgba(191,48,32,0.06);
+  --charcoal:     #2C2B28;   /* bulb outline gray, darkened */
+  --charcoal-2:   #4A4845;
+  --charcoal-3:   #6B6965;
+  --charcoal-4:   #8E8C89;
+  --off-white:    #F8F5EF;   /* warm white background */
+  --off-white-2:  #EDE9E1;
+  --off-white-3:  #DDD9D0;
+  --ink:          #1A1917;
+  --rule:         rgba(44,43,40,0.12);
+  --rule-strong:  rgba(44,43,40,0.22);
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--dark);
-  font-family: 'Lato', sans-serif;
-  color: var(--white);
+  background: var(--off-white);
+  font-family: 'Barlow', sans-serif;
+  color: var(--charcoal);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: var(--dark); }
-::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 3px; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--off-white-2); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+
+/* ─── PAGE TOGGLE ─── */
+.page-toggle {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(44,43,40,0.06);
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  padding: 3px;
+}
+.toggle-btn {
+  width: 28px; height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--charcoal-3);
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.2s ease, color 0.2s ease;
+  letter-spacing: 0.05em;
+}
+.toggle-btn:hover { color: var(--charcoal); background: var(--rule); }
+.toggle-btn.active { background: var(--red); color: #fff; }
 
 /* ─── NAVIGATION ─── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 18px 64px;
+  padding: 0 60px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 nav.scrolled {
-  background: rgba(15,13,11,0.94);
-  backdrop-filter: blur(14px);
-  padding: 12px 64px;
-  box-shadow: 0 1px 0 rgba(201,163,88,0.12), 0 4px 24px rgba(0,0,0,0.4);
+  background: rgba(248,245,239,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule-strong);
 }
 
 .nav-logo {
   display: flex;
   align-items: center;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .nav-logo img {
-  height: 48px;
+  height: 38px;
   width: auto;
   object-fit: contain;
 }
 
-.nav-links {
+.nav-center {
   display: flex;
   align-items: center;
-  gap: 44px;
+  gap: 40px;
   list-style: none;
 }
 
-.nav-links a {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+.nav-center a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--charcoal-3);
   text-decoration: none;
-  transition: color 0.25s ease;
+  transition: color 0.2s ease;
   position: relative;
 }
 
-.nav-links a::after {
+.nav-center a::after {
   content: '';
   position: absolute;
-  bottom: -4px; left: 0;
-  width: 0; height: 1px;
-  background: var(--cyan);
-  transition: width 0.3s ease;
+  bottom: -3px; left: 0;
+  width: 0; height: 1.5px;
+  background: var(--red);
+  transition: width 0.25s ease;
 }
 
-.nav-links a:hover { color: var(--white); }
-.nav-links a:hover::after { width: 100%; }
+.nav-center a:hover { color: var(--charcoal); }
+.nav-center a:hover::after { width: 100%; }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
 .nav-cta {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--dark);
-  background: var(--gold);
-  padding: 11px 26px;
-  text-decoration: none;
-  border-radius: 2px;
-  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
-  box-shadow: 0 0 0 rgba(0,210,255,0);
-}
-
-.nav-cta:hover {
-  background: var(--gold-bright);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(201,163,88,0.3);
-}
-.nav-cta:active { transform: translateY(0); }
-
-/* ─── PAGE TOGGLE ─── */
-.page-toggle {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background: rgba(244,238,224,0.07);
-  border: 1px solid rgba(201,163,88,0.2);
-  border-radius: 4px;
-  padding: 3px;
-}
-.toggle-btn {
-  width: 30px; height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 12px;
   font-weight: 700;
-  color: var(--muted);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--red);
+  padding: 9px 22px;
   text-decoration: none;
-  border-radius: 3px;
-  transition: background 0.2s ease, color 0.2s ease;
+  border-radius: 2px;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
-.toggle-btn:hover { color: var(--white); background: rgba(244,238,224,0.1); }
-.toggle-btn.active { background: var(--gold); color: var(--dark); }
+.nav-cta:hover { background: var(--red-deep); transform: translateY(-1px); }
+.nav-cta:active { transform: translateY(0); }
 
 /* ─── HERO ─── */
 .hero {
   min-height: 100vh;
+  padding-top: 70px;
+  display: grid;
+  grid-template-rows: 1fr auto;
   position: relative;
+  overflow: hidden;
+}
+
+/* Geometric background — large red arc derived from lightbulb motif */
+.hero-bg {
+  position: absolute;
+  top: -20%;
+  right: -8%;
+  width: 68vw;
+  height: 68vw;
+  border-radius: 50%;
+  border: 1px solid rgba(191,48,32,0.10);
+  pointer-events: none;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  border: 1px solid rgba(191,48,32,0.07);
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 18%;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(191,48,32,0.05) 0%, transparent 70%);
+}
+
+.hero-rule-v {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--rule);
+  pointer-events: none;
+}
+
+.hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
-  overflow: hidden;
-  background: var(--dark);
-}
-
-.hero-bg-glow {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 70% at 75% 50%, rgba(0,210,255,0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 20% 70%, rgba(201,163,88,0.06) 0%, transparent 55%),
-    radial-gradient(ellipse 80% 80% at 50% 100%, rgba(15,13,11,0.9) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.hero-grain {
-  position: absolute;
-  inset: 0;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 160px;
-  pointer-events: none;
-}
-
-.hero-left {
-  padding: 140px 64px 100px;
+  min-height: calc(100vh - 70px);
   position: relative;
-  z-index: 2;
+}
+
+/* LEFT: typographic */
+.hero-left {
+  padding: 80px 60px 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--rule);
 }
 
 .hero-eyebrow {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--cyan);
-  margin-bottom: 32px;
   display: flex;
   align-items: center;
   gap: 14px;
-  opacity: 0;
-  transform: translateY(16px);
-  animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 40px;
 }
 
 .hero-eyebrow::before {
   content: '';
-  width: 28px; height: 1px;
-  background: var(--cyan);
-  opacity: 0.6;
+  display: block;
+  width: 32px;
+  height: 1.5px;
+  background: var(--red);
+  flex-shrink: 0;
 }
 
 .hero-headline {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(46px, 5.5vw, 88px);
-  font-weight: 600;
-  line-height: 1.08;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(72px, 8.5vw, 120px);
+  font-weight: 900;
+  line-height: 0.93;
   letter-spacing: -0.02em;
-  color: var(--white);
-  margin-bottom: 12px;
-  opacity: 0;
-  transform: translateY(24px);
-  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.38s forwards;
+  color: var(--ink);
+  text-transform: uppercase;
+  margin-bottom: 40px;
 }
 
 .hero-headline em {
-  font-style: italic;
-  color: var(--gold);
+  font-style: normal;
+  color: var(--red);
+  display: block;
 }
 
-.hero-headline .script-accent {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.15em;
-  color: var(--gold-bright);
-  font-weight: 400;
+.hero-divider {
+  width: 48px;
+  height: 3px;
+  background: var(--red);
+  margin-bottom: 32px;
 }
 
 .hero-sub {
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.75;
-  color: var(--muted);
-  max-width: 440px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 20px;
+  line-height: 1.68;
+  color: var(--charcoal-2);
+  max-width: 420px;
   margin-bottom: 52px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.54s forwards;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
   gap: 20px;
-  opacity: 0;
-  transform: translateY(18px);
-  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.68s forwards;
+  flex-wrap: wrap;
 }
 
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 12px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--dark);
-  background: var(--gold);
-  padding: 14px 32px;
+  color: #fff;
+  background: var(--red);
+  padding: 14px 28px;
   text-decoration: none;
   border-radius: 2px;
-  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 16px rgba(191,48,32,0.28), 0 1px 4px rgba(191,48,32,0.20);
 }
 .btn-primary:hover {
-  background: var(--gold-bright);
+  background: var(--red-deep);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(201,163,88,0.3);
+  box-shadow: 0 8px 24px rgba(191,48,32,0.36), 0 2px 6px rgba(191,48,32,0.24);
 }
 .btn-primary:active { transform: translateY(0); }
-
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  padding: 14px 4px;
-  border-bottom: 1px solid rgba(244,238,224,0.2);
-  transition: color 0.25s ease, border-color 0.25s ease;
-}
-.btn-ghost:hover { color: var(--white); border-color: var(--gold); }
-
-.hero-right {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 100px 40px 60px;
-  opacity: 0;
-  animation: fadeIn 1.2s ease 0.5s forwards;
-}
-
-.hero-logo-img {
-  width: 100%;
-  max-width: 580px;
-  border-radius: 16px;
-  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.95)) drop-shadow(0 0 60px rgba(0,210,255,0.08)) brightness(0.92) contrast(1.05);
-  mask-image: radial-gradient(ellipse 88% 88% at 50% 50%, black 55%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 88% 88% at 50% 50%, black 55%, transparent 100%);
-}
-
-.hero-neon-line {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 180px;
-  background: linear-gradient(to bottom, transparent, var(--cyan), transparent);
-  opacity: 0.4;
-}
-
-/* ─── STATS BAR ─── */
-.stats-bar {
-  background: var(--dark-3);
-  border-top: 1px solid rgba(201,163,88,0.1);
-  border-bottom: 1px solid rgba(201,163,88,0.1);
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-}
-
-.stat-item {
-  padding: 44px 40px;
-  border-right: 1px solid rgba(201,163,88,0.1);
-  position: relative;
-}
-.stat-item:last-child { border-right: none; }
-
-.stat-number {
-  font-family: 'Playfair Display', serif;
-  font-size: 44px;
-  font-weight: 700;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 10px;
-}
-
-.stat-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--muted-2);
-}
-
-.stat-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 40px; right: 40px;
-  height: 2px;
-  background: linear-gradient(to right, var(--cyan), var(--green));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
-}
-.stat-item.visible::after { transform: scaleX(1); }
-
-/* ─── SECTION COMMON ─── */
-.section-eyebrow {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.section-eyebrow::before {
-  content: '';
-  width: 24px; height: 1px;
-  background: var(--gold);
-  opacity: 0.5;
-}
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(34px, 3.8vw, 60px);
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: var(--white);
-  margin-bottom: 56px;
-}
-.section-title em {
-  font-style: italic;
-  color: var(--gold);
-}
-
-/* ─── SERVICES ─── */
-.services {
-  padding: 120px 64px;
-  background: var(--dark-2);
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 1px;
-  background: rgba(201,163,88,0.08);
-  border: 1px solid rgba(201,163,88,0.08);
-}
-
-.service-card {
-  padding: 48px 40px 44px;
-  background: var(--dark-2);
-  position: relative;
-  overflow: hidden;
-  transition: background 0.3s ease;
-}
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--cyan), var(--green));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
-}
-.service-card:hover { background: var(--dark-3); }
-.service-card:hover::before { transform: scaleX(1); }
-
-.service-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  color: var(--gold-dim);
-  margin-bottom: 28px;
-}
-
-.service-icon {
-  width: 28px; height: 28px;
-  stroke: var(--gold);
-  margin-bottom: 20px;
-}
-
-.service-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 16px;
-  line-height: 1.25;
-}
-
-.service-desc {
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--muted);
-  margin-bottom: 28px;
-}
-
-.service-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--cyan);
-  text-decoration: none;
-  transition: gap 0.25s ease, opacity 0.25s ease;
-}
-.service-link:hover { gap: 12px; opacity: 0.8; }
-
-/* ─── PHILOSOPHY ─── */
-.philosophy {
-  padding: 120px 64px;
-  background: var(--dark);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-  position: relative;
-  overflow: hidden;
-}
-
-.philosophy::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  width: 500px; height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,210,255,0.03) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.philosophy-quote {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(26px, 2.8vw, 40px);
-  font-weight: 500;
-  line-height: 1.3;
-  color: var(--white);
-  margin-bottom: 36px;
-}
-.philosophy-quote strong { color: var(--gold); }
-
-.philosophy-divider {
-  width: 60px; height: 2px;
-  background: linear-gradient(to right, var(--cyan), var(--green));
-  margin-bottom: 32px;
-}
-
-.philosophy-sub {
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 1.85;
-  color: var(--muted);
-  max-width: 480px;
-}
-
-.values-list { display: flex; flex-direction: column; gap: 0; }
-
-.value-item {
-  padding: 32px 0;
-  border-bottom: 1px solid rgba(201,163,88,0.1);
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 20px;
-  align-items: start;
-}
-.value-item:first-child { padding-top: 0; }
-
-.value-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--gold-dim);
-  letter-spacing: 0.1em;
-  padding-top: 4px;
-}
-
-.value-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 10px;
-}
-.value-desc {
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--muted);
-}
-
-/* ─── PROCESS ─── */
-.process {
-  padding: 120px 64px;
-  background: var(--dark-3);
-  border-top: 1px solid rgba(201,163,88,0.08);
-  border-bottom: 1px solid rgba(201,163,88,0.08);
-}
-
-.process-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 72px;
-  gap: 40px;
-}
-
-.process-desc {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--muted);
-  max-width: 360px;
-  text-align: right;
-}
-
-.process-steps {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 1px;
-  background: rgba(201,163,88,0.08);
-}
-
-.process-step {
-  padding: 40px 36px;
-  background: var(--dark-3);
-  position: relative;
-}
-
-.step-dot {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  border: 1px solid rgba(201,163,88,0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 28px;
-  position: relative;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-.process-step:hover .step-dot {
-  border-color: var(--cyan);
-  box-shadow: 0 0 16px rgba(0,210,255,0.2);
-}
-
-.step-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--gold);
-}
-
-.step-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 14px;
-}
-
-.step-desc {
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--muted);
-}
-
-/* ─── TESTIMONIALS ─── */
-.testimonials {
-  padding: 120px 64px;
-  background: var(--dark);
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 28px;
-  margin-top: 56px;
-}
-
-.testimonial-card {
-  padding: 44px 40px;
-  background: var(--dark-3);
-  border: 1px solid rgba(201,163,88,0.1);
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-.testimonial-card:hover {
-  border-color: rgba(0,210,255,0.2);
-  box-shadow: 0 0 40px rgba(0,210,255,0.05);
-}
-.testimonial-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, var(--magenta), var(--cyan));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.testimonial-card:hover::before { opacity: 1; }
-
-.quote-mark {
-  font-family: 'Playfair Display', serif;
-  font-size: 64px;
-  line-height: 0.8;
-  color: var(--gold);
-  opacity: 0.25;
-  margin-bottom: 24px;
-}
-
-.testimonial-text {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.85;
-  color: var(--muted);
-  margin-bottom: 32px;
-}
-
-.testimonial-rule {
-  width: 32px; height: 1px;
-  background: linear-gradient(to right, var(--cyan), var(--green));
-  margin-bottom: 20px;
-}
-
-.testimonial-author {
-  font-family: 'Playfair Display', serif;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 4px;
-}
-.testimonial-role {
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  color: var(--muted-2);
-}
-
-/* ─── CTA ─── */
-.cta-section {
-  padding: 100px 64px;
-  background: var(--dark-2);
-  border-top: 1px solid rgba(201,163,88,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 60px;
-  position: relative;
-  overflow: hidden;
-}
-
-.cta-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 0% 50%, rgba(201,163,88,0.04) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-.cta-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(30px, 3.5vw, 52px);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--white);
-  margin-bottom: 16px;
-}
-
-.cta-sub {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--muted);
-  max-width: 400px;
-}
-
-.cta-right {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  flex-shrink: 0;
-}
-
-.btn-white {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--dark);
-  background: var(--gold);
-  padding: 14px 36px;
-  text-decoration: none;
-  border-radius: 2px;
-  transition: background 0.25s ease, transform 0.2s ease;
-}
-.btn-white:hover { background: var(--gold-bright); transform: translateY(-1px); }
 
 .btn-outline {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gold);
-  background: transparent;
-  padding: 13px 36px;
-  text-decoration: none;
-  border: 1px solid rgba(201,163,88,0.4);
-  border-radius: 2px;
-  transition: border-color 0.25s ease, color 0.25s ease;
-}
-.btn-outline:hover { border-color: var(--gold); color: var(--gold-bright); }
-
-/* ─── FOOTER ─── */
-footer {
-  background: var(--dark);
-  border-top: 1px solid rgba(201,163,88,0.1);
-}
-
-.footer-top {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 60px;
-  padding: 72px 64px 60px;
-}
-
-.footer-logo img {
-  height: 44px;
-  width: auto;
-  margin-bottom: 20px;
-}
-
-.footer-brand-desc {
+  gap: 8px;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 13px;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--muted-2);
-  max-width: 280px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  border: 1.5px solid var(--rule-strong);
+  padding: 13px 24px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+.btn-outline:hover {
+  border-color: var(--red);
+  color: var(--red);
+  background: var(--red-glow);
+}
+.btn-outline:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+
+/* RIGHT: logo + large red numeral accent */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 60px;
+  position: relative;
+  background: #fff;
+  overflow: hidden;
 }
 
-.footer-col-title {
-  font-size: 10px;
+.hero-right-bg-num {
+  position: absolute;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 38vw;
+  font-weight: 900;
+  color: rgba(191,48,32,0.04);
+  line-height: 1;
+  bottom: -10%;
+  right: -8%;
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+.hero-logo-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-logo-wrap img {
+  width: clamp(200px, 28vw, 360px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 40px rgba(191,48,32,0.12)) drop-shadow(0 2px 8px rgba(44,43,40,0.08));
+}
+
+.hero-tagline-block {
+  text-align: center;
+  border-top: 1px solid var(--rule-strong);
+  padding-top: 32px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.hero-tagline {
+  font-family: 'Crimson Pro', serif;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--charcoal-3);
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+}
+
+/* ─── STATS STRIP ─── */
+.stats-strip {
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+  background: var(--ink);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.stat-cell {
+  padding: 36px 48px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stat-cell.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stat-cell:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--red);
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ─── SECTION BASE ─── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 22px;
+  color: var(--red);
+  margin-bottom: 28px;
 }
 
-.footer-links {
-  list-style: none;
+.section-label::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--red);
+}
+
+/* ─── SERVICES ─── */
+.services {
+  padding: 100px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 72px;
+  align-items: end;
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 48px;
+}
+
+.services-heading {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(44px, 5vw, 68px);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.services-heading span { color: var(--red); }
+
+.services-intro {
+  font-family: 'Crimson Pro', serif;
+  font-size: 18px;
+  line-height: 1.72;
+  color: var(--charcoal-2);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule-strong);
+}
+
+.service-card {
+  padding: 44px 40px;
+  border-right: 1px solid var(--rule-strong);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+.service-card:last-child { border-right: none; }
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.service-card:hover { background: #fff; }
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  margin-bottom: 24px;
+  display: block;
+}
+
+.service-icon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 20px;
+  color: var(--charcoal-2);
+}
+
+.service-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.service-desc {
+  font-family: 'Crimson Pro', serif;
+  font-size: 16px;
+  line-height: 1.70;
+  color: var(--charcoal-2);
+}
+
+/* ─── ABOUT / SPLIT ─── */
+.about {
+  border-top: 1px solid var(--rule-strong);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.about-left {
+  background: var(--ink);
+  padding: 100px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-left-bg {
+  position: absolute;
+  bottom: -30%;
+  left: -20%;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  border: 1px solid rgba(191,48,32,0.15);
+  pointer-events: none;
+}
+
+.about-left-bg::before {
+  content: '';
+  position: absolute;
+  inset: 15%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(191,48,32,0.08) 0%, transparent 70%);
+}
+
+.about-quote {
+  font-family: 'Crimson Pro', serif;
+  font-size: 30px;
+  font-style: italic;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.90);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 40px;
+}
+
+.about-quote::before {
+  content: '\201C';
+  font-size: 80px;
+  line-height: 1;
+  color: var(--red);
+  display: block;
+  margin-bottom: -8px;
+  font-family: 'Crimson Pro', serif;
+}
+
+.about-attr {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  position: relative;
+  z-index: 1;
+}
+
+.about-right {
+  padding: 100px 60px;
+}
+
+.about-heading {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+
+.about-heading em {
+  font-style: normal;
+  color: var(--red);
+}
+
+.about-body {
+  font-family: 'Crimson Pro', serif;
+  font-size: 17.5px;
+  line-height: 1.75;
+  color: var(--charcoal-2);
+  margin-bottom: 24px;
+}
+
+.about-pillars {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule-strong);
+  border: 1px solid var(--rule-strong);
+}
+
+.pillar {
+  background: var(--off-white);
+  padding: 20px 22px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
 }
 
-.footer-links a {
+.pillar-label {
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 13px;
-  font-weight: 300;
-  color: var(--muted-2);
-  text-decoration: none;
-  transition: color 0.2s ease;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
 }
-.footer-links a:hover { color: var(--gold); }
 
-.footer-bottom {
-  padding: 24px 64px;
-  border-top: 1px solid rgba(201,163,88,0.08);
+.pillar-desc {
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--charcoal-3);
+}
+
+/* ─── PROCESS ─── */
+.process {
+  padding: 100px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.process-heading {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(44px, 4.5vw, 62px);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 64px;
+}
+
+.process-heading span { color: var(--red); }
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 3px solid var(--ink);
+}
+
+.process-step {
+  padding: 40px 32px 40px 0;
+  border-right: 1px solid var(--rule-strong);
+  padding-right: 40px;
+}
+
+.process-step:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.step-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 68px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--red-dim);
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.step-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.step-desc {
+  font-family: 'Crimson Pro', serif;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--charcoal-2);
+}
+
+/* ─── TESTIMONIALS ─── */
+.testimonials {
+  background: var(--off-white-2);
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+  padding: 100px 60px;
+}
+
+.testi-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testi-heading {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(40px, 4vw, 58px);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 60px;
+}
+
+.testi-heading span { color: var(--red); }
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule-strong);
+  border: 1px solid var(--rule-strong);
+}
+
+.testi-card {
+  background: var(--off-white);
+  padding: 40px 36px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.testi-stars {
+  display: flex;
+  gap: 3px;
+}
+
+.testi-star {
+  width: 14px;
+  height: 14px;
+  color: var(--red);
+  fill: var(--red);
+}
+
+.testi-body {
+  font-family: 'Crimson Pro', serif;
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.72;
+  color: var(--charcoal-2);
+  flex: 1;
+}
+
+.testi-attr {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+
+.testi-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.testi-role {
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px;
+  color: var(--charcoal-4);
+}
+
+/* ─── CONTACT / CTA ─── */
+.contact {
+  padding: 120px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
   align-items: center;
 }
 
-.footer-copy {
-  font-size: 12px;
-  font-weight: 300;
-  color: var(--muted-2);
+.contact-left {}
+
+.contact-heading {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(52px, 6vw, 80px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 28px;
 }
 
-.footer-legal {
-  list-style: none;
+.contact-heading em {
+  font-style: normal;
+  color: var(--red);
+  display: block;
+}
+
+.contact-sub {
+  font-family: 'Crimson Pro', serif;
+  font-size: 18px;
+  line-height: 1.70;
+  color: var(--charcoal-2);
+  margin-bottom: 44px;
+}
+
+.contact-info {
   display: flex;
-  gap: 28px;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.footer-legal a {
-  font-size: 12px;
-  font-weight: 300;
-  color: var(--muted-2);
+.contact-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  color: var(--charcoal-2);
   text-decoration: none;
   transition: color 0.2s ease;
 }
-.footer-legal a:hover { color: var(--gold); }
 
-/* ─── SCROLL REVEAL ─── */
+.contact-line:hover { color: var(--red); }
+
+.contact-line svg {
+  width: 16px;
+  height: 16px;
+  color: var(--red);
+  flex-shrink: 0;
+}
+
+.contact-right {
+  background: var(--ink);
+  padding: 52px 48px;
+  border-radius: 2px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.form-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+.form-input,
+.form-textarea {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 2px;
+  padding: 13px 16px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  color: #fff;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  outline: none;
+  width: 100%;
+  resize: none;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--red);
+  background: rgba(191,48,32,0.06);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(255,255,255,0.22);
+}
+
+.form-textarea { min-height: 100px; }
+
+.form-submit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--red);
+  border: none;
+  padding: 15px 32px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.form-submit:hover { background: var(--red-bright); transform: translateY(-1px); }
+.form-submit:active { transform: translateY(0); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink);
+  border-top: 3px solid var(--red);
+  padding: 40px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1) opacity(0.7);
+}
+
+.footer-copy {
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.05em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.footer-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-links a:hover { color: var(--red); }
+
+/* ─── REVEAL ANIMATION ─── */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.12s; }
-.reveal-delay-2 { transition-delay: 0.24s; }
-.reveal-delay-3 { transition-delay: 0.36s; }
-
-/* ─── ANIMATIONS ─── */
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  to { opacity: 1; }
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* ─── FOCUS VISIBLE ─── */
-a:focus-visible {
-  outline: 2px solid var(--cyan);
-  outline-offset: 4px;
+@media (max-width: 1024px) {
+  .hero-content { grid-template-columns: 1fr; }
+  .hero-rule-v { display: none; }
+  .hero-left { border-right: none; border-bottom: 1px solid var(--rule-strong); padding: 60px 32px; }
+  .hero-right { padding: 60px 32px; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .services-header { grid-template-columns: 1fr; gap: 24px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card { border-right: none; border-bottom: 1px solid var(--rule-strong); }
+  .about { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .contact { grid-template-columns: 1fr; gap: 48px; }
+  nav { padding: 0 24px; }
+  .nav-center { display: none; }
+  .services, .process { padding: 72px 32px; }
+  .testimonials { padding: 72px 32px; }
+  .contact { padding: 72px 32px; }
+  footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
 }
 </style>
 </head>
 <body>
 
-<!-- ─── NAVIGATION ─── -->
-<nav id="mainNav">
+<!-- ─── NAV ─── -->
+<nav id="main-nav">
   <a href="#" class="nav-logo">
-    <img src="brand_assests/logo1.png" alt="DeLara Consulting LLC"/>
+    <img src="brand_assests/Logo2.png" alt="DeLara Consulting LLC"/>
   </a>
-  <ul class="nav-links">
+
+  <ul class="nav-center">
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#testimonials">Clients</a></li>
   </ul>
-  <div class="page-toggle">
-    <a href="index.html" class="toggle-btn active">1</a>
-    <a href="landing-2.html" class="toggle-btn">2</a>
-    <a href="landing-3.html" class="toggle-btn">3</a>
-    <a href="landing-4.html" class="toggle-btn">4</a>
+
+  <div class="nav-right">
+    <div class="page-toggle">
+      <a href="index.html" class="toggle-btn active">1</a>
+      <a href="landing-2.html" class="toggle-btn">2</a>
+      <a href="landing-3.html" class="toggle-btn">3</a>
+      <a href="landing-4.html" class="toggle-btn">4</a>
+      <a href="landing-5.html" class="toggle-btn">5</a>
+    </div>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
   </div>
-  <a href="#contact" class="nav-cta">Get in Touch</a>
 </nav>
 
 <!-- ─── HERO ─── -->
 <section class="hero">
-  <div class="hero-bg-glow"></div>
-  <div class="hero-grain"></div>
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-rule-v" aria-hidden="true"></div>
 
-  <div class="hero-left">
-    <div class="hero-eyebrow">Strategic Advisory &amp; Consulting</div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Strategic Advisory &amp; Consulting</div>
 
-    <h1 class="hero-headline">
-      Your Vision.<br>
-      <em>Our</em> <span class="script-accent">Expertise.</span>
-    </h1>
+      <h1 class="hero-headline">
+        Illuminate.<br>
+        Align.<br>
+        <em>Execute.</em>
+      </h1>
 
-    <p class="hero-sub">We partner with ambitious organizations to transform complexity into clarity — delivering strategies that endure and results that matter.</p>
+      <div class="hero-divider"></div>
 
-    <div class="hero-actions">
-      <a href="#services" class="btn-primary">
-        Explore Our Work
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <a href="#contact" class="btn-ghost">
-        Schedule a Call
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-      </a>
+      <p class="hero-sub">
+        We partner with ambitious organizations to transform complexity into clarity — delivering strategies that endure and results that compel.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">
+          Explore Our Work
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#contact" class="btn-outline">
+          Schedule a Call
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
     </div>
-  </div>
 
-  <div class="hero-right">
-    <div class="hero-neon-line"></div>
-    <img class="hero-logo-img" src="brand_assests/logo1.png" alt="DeLara Consulting"/>
+    <div class="hero-right">
+      <div class="hero-right-bg-num" aria-hidden="true">DL</div>
+      <div class="hero-logo-wrap">
+        <img src="brand_assests/Logo2.png" alt="DeLara Consulting LLC"/>
+        <div class="hero-tagline-block">
+          <p class="hero-tagline">Your Vision. Our Expertise.<br>The clarity to move forward.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ─── STATS BAR ─── -->
-<div class="stats-bar">
-  <div class="stat-item reveal">
-    <div class="stat-number">15+</div>
-    <div class="stat-label">Years of Experience</div>
+<!-- ─── STATS STRIP ─── -->
+<div class="stats-strip">
+  <div class="stat-cell reveal">
+    <span class="stat-num">15+</span>
+    <span class="stat-label">Years of Experience</span>
   </div>
-  <div class="stat-item reveal reveal-delay-1">
-    <div class="stat-number">200+</div>
-    <div class="stat-label">Engagements Completed</div>
+  <div class="stat-cell reveal" style="transition-delay:0.08s">
+    <span class="stat-num">200+</span>
+    <span class="stat-label">Engagements Delivered</span>
   </div>
-  <div class="stat-item reveal reveal-delay-2">
-    <div class="stat-number">40+</div>
-    <div class="stat-label">Industries Served</div>
+  <div class="stat-cell reveal" style="transition-delay:0.16s">
+    <span class="stat-num">97%</span>
+    <span class="stat-label">Client Satisfaction</span>
   </div>
-  <div class="stat-item reveal reveal-delay-3">
-    <div class="stat-number">98%</div>
-    <div class="stat-label">Client Retention Rate</div>
+  <div class="stat-cell reveal" style="transition-delay:0.24s">
+    <span class="stat-num">40+</span>
+    <span class="stat-label">Industries Served</span>
   </div>
 </div>
 
 <!-- ─── SERVICES ─── -->
 <section class="services" id="services">
-  <div class="section-eyebrow">Our Expertise</div>
-  <h2 class="section-title">Where <em>strategy</em><br>meets execution.</h2>
+  <div class="services-header reveal">
+    <div>
+      <div class="section-label">What We Do</div>
+      <h2 class="services-heading">Our <span>Core</span><br>Capabilities</h2>
+    </div>
+    <p class="services-intro">
+      Every engagement is calibrated to your specific context. We bring structured thinking, deep expertise, and the candor to tell you what others won't.
+    </p>
+  </div>
 
   <div class="services-grid">
     <div class="service-card reveal">
-      <div class="service-num">01</div>
+      <span class="service-num">01</span>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <h3 class="service-title">Strategic<br>Advisory</h3>
+      <p class="service-desc">Translating organizational ambiguity into executable direction. We work alongside leadership to frame the right questions, test assumptions, and chart a durable course.</p>
+    </div>
+
+    <div class="service-card reveal" style="transition-delay:0.08s">
+      <span class="service-num">02</span>
       <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
       </svg>
-      <div class="service-name">Strategic Planning</div>
-      <p class="service-desc">We help leadership teams define clear direction, align stakeholders, and build roadmaps that translate vision into measurable outcomes.</p>
-      <a href="#contact" class="service-link">
-        Learn More
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
+      <h3 class="service-title">Operational<br>Excellence</h3>
+      <p class="service-desc">Diagnosing the friction that slows organizations and designing the systems that eliminate it. Performance at every layer — from process to people to platform.</p>
     </div>
 
-    <div class="service-card reveal reveal-delay-1">
-      <div class="service-num">02</div>
+    <div class="service-card reveal" style="transition-delay:0.16s">
+      <span class="service-num">03</span>
       <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
       </svg>
-      <div class="service-name">Operational Excellence</div>
-      <p class="service-desc">From process redesign to performance systems, we identify friction points and implement solutions that drive efficiency at every level.</p>
-      <a href="#contact" class="service-link">
-        Learn More
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-
-    <div class="service-card reveal reveal-delay-2">
-      <div class="service-num">03</div>
-      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-      </svg>
-      <div class="service-name">Leadership Development</div>
-      <p class="service-desc">Equipping executives and emerging leaders with the tools, frameworks, and confidence to navigate complexity and inspire performance.</p>
-      <a href="#contact" class="service-link">
-        Learn More
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-
-    <div class="service-card reveal">
-      <div class="service-num">04</div>
-      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-      </svg>
-      <div class="service-name">Digital Transformation</div>
-      <p class="service-desc">Guiding organizations through technology adoption — from assessment and selection to change management and value realization.</p>
-      <a href="#contact" class="service-link">
-        Learn More
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-
-    <div class="service-card reveal reveal-delay-1">
-      <div class="service-num">05</div>
-      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
-      </svg>
-      <div class="service-name">Growth Strategy</div>
-      <p class="service-desc">Market entry, expansion planning, M&amp;A advisory — we build the analytical foundation and strategic clarity to pursue growth with conviction.</p>
-      <a href="#contact" class="service-link">
-        Learn More
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-
-    <div class="service-card reveal reveal-delay-2">
-      <div class="service-num">06</div>
-      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-      </svg>
-      <div class="service-name">Organizational Design</div>
-      <p class="service-desc">Structuring teams, roles, and governance models to enable accountability, agility, and the high-performance culture your strategy demands.</p>
-      <a href="#contact" class="service-link">
-        Learn More
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
+      <h3 class="service-title">Leadership<br>Development</h3>
+      <p class="service-desc">Building the bench strength your strategy demands. Coaching, assessment, and organizational design that cultivates leaders ready for what comes next.</p>
     </div>
   </div>
 </section>
 
-<!-- ─── PHILOSOPHY ─── -->
-<section class="philosophy" id="about">
-  <div class="philosophy-left">
-    <div class="section-eyebrow">Our Philosophy</div>
-    <div class="philosophy-quote reveal">
-      "Your vision.<br><strong>Our expertise.</strong><br>One result."
-    </div>
-    <div class="philosophy-divider reveal reveal-delay-1"></div>
-    <p class="philosophy-sub reveal reveal-delay-2">At DeLara, we believe the most powerful consulting relationships are built on deep partnership — not just deliverables. We embed with your team, understand your context, and bring the full weight of our experience to bear on what matters most to you.</p>
+<!-- ─── ABOUT ─── -->
+<section class="about" id="about">
+  <div class="about-left">
+    <div class="about-left-bg" aria-hidden="true"></div>
+    <blockquote class="about-quote">
+      The best strategy is worthless without the alignment and capability to execute it.
+    </blockquote>
+    <p class="about-attr">— DeLara Consulting, LLC.</p>
   </div>
 
-  <div class="philosophy-right">
-    <div class="values-list">
-      <div class="value-item reveal">
-        <div class="value-num">01</div>
-        <div class="value-content">
-          <div class="value-title">Clarity Over Complexity</div>
-          <p class="value-desc">We distill the complex into the essential — giving leadership teams the clear picture they need to decide and act with confidence.</p>
-        </div>
+  <div class="about-right">
+    <div class="section-label">Who We Are</div>
+    <h2 class="about-heading">Built on <em>Candor</em><br>and Conviction</h2>
+    <p class="about-body">
+      DeLara Consulting was founded on a simple premise: organizations deserve advisors who speak plainly, think rigorously, and stand behind their recommendations.
+    </p>
+    <p class="about-body">
+      We don't sell frameworks. We engage deeply with your reality and bring the intellectual honesty to challenge comfortable assumptions — because lasting results demand it.
+    </p>
+
+    <div class="about-pillars">
+      <div class="pillar">
+        <span class="pillar-label">Clarity</span>
+        <span class="pillar-desc">Complexity simplified without losing nuance</span>
       </div>
-      <div class="value-item reveal reveal-delay-1">
-        <div class="value-num">02</div>
-        <div class="value-content">
-          <div class="value-title">Partnership, Not Prescription</div>
-          <p class="value-desc">We don't parachute in with pre-packaged answers. We build real understanding, then co-create solutions that fit your unique context.</p>
-        </div>
+      <div class="pillar">
+        <span class="pillar-label">Candor</span>
+        <span class="pillar-desc">Honest perspectives, not comfortable answers</span>
       </div>
-      <div class="value-item reveal reveal-delay-2">
-        <div class="value-num">03</div>
-        <div class="value-content">
-          <div class="value-title">Results That Endure</div>
-          <p class="value-desc">Our measure of success isn't the report we deliver — it's the lasting capability, culture, and competitive advantage we help you build.</p>
-        </div>
+      <div class="pillar">
+        <span class="pillar-label">Craft</span>
+        <span class="pillar-desc">Meticulous execution at every level</span>
       </div>
-      <div class="value-item reveal reveal-delay-3">
-        <div class="value-num">04</div>
-        <div class="value-content">
-          <div class="value-title">Candor With Care</div>
-          <p class="value-desc">We tell you what you need to hear, not what you want to hear — delivered with the respect and care that a genuine partner deserves.</p>
-        </div>
+      <div class="pillar">
+        <span class="pillar-label">Conviction</span>
+        <span class="pillar-desc">Recommendations we stand behind fully</span>
       </div>
     </div>
   </div>
@@ -1110,142 +1225,170 @@ a:focus-visible {
 
 <!-- ─── PROCESS ─── -->
 <section class="process" id="process">
-  <div class="process-header">
-    <div>
-      <div class="section-eyebrow">How We Work</div>
-      <h2 class="section-title" style="margin-bottom:0;">A <em>proven</em> path<br>to impact.</h2>
-    </div>
-    <p class="process-desc">Every engagement follows a disciplined methodology — structured enough to be reliable, flexible enough to meet you where you are.</p>
-  </div>
+  <div class="section-label reveal">How We Work</div>
+  <h2 class="process-heading reveal">The <span>DeLara</span><br>Method</h2>
 
   <div class="process-steps">
     <div class="process-step reveal">
-      <div class="step-dot"><span class="step-num">1</span></div>
-      <div class="step-title">Discovery</div>
-      <p class="step-desc">Deep listening and diagnostic work to understand your context, challenges, goals, and the dynamics at play.</p>
+      <span class="step-num">01</span>
+      <h3 class="step-title">Diagnose</h3>
+      <p class="step-desc">Deep discovery to understand your actual situation — not the symptoms, but the root causes shaping your outcomes.</p>
     </div>
-    <div class="process-step reveal reveal-delay-1">
-      <div class="step-dot"><span class="step-num">2</span></div>
-      <div class="step-title">Diagnosis</div>
-      <p class="step-desc">Structured analysis to identify root causes, surface hidden opportunities, and frame the strategic choices you face.</p>
+    <div class="process-step reveal" style="transition-delay:0.08s">
+      <span class="step-num">02</span>
+      <h3 class="step-title">Align</h3>
+      <p class="step-desc">Bringing leadership into genuine consensus on direction, priorities, and the trade-offs required to move forward.</p>
     </div>
-    <div class="process-step reveal reveal-delay-2">
-      <div class="step-dot"><span class="step-num">3</span></div>
-      <div class="step-title">Design</div>
-      <p class="step-desc">Co-creating strategies, structures, and plans that are ambitious, actionable, and built for your specific context.</p>
+    <div class="process-step reveal" style="transition-delay:0.16s">
+      <span class="step-num">03</span>
+      <h3 class="step-title">Design</h3>
+      <p class="step-desc">Crafting solutions built for your specific context — rigorous, practical, and designed to outlast the engagement.</p>
     </div>
-    <div class="process-step reveal reveal-delay-3">
-      <div class="step-dot"><span class="step-num">4</span></div>
-      <div class="step-title">Delivery</div>
-      <p class="step-desc">Hands-on support through implementation — ensuring your plan translates into real outcomes, not just good intentions.</p>
+    <div class="process-step reveal" style="transition-delay:0.24s">
+      <span class="step-num">04</span>
+      <h3 class="step-title">Execute</h3>
+      <p class="step-desc">Side-by-side implementation support to ensure your strategy lands — not just on paper, but in practice.</p>
     </div>
   </div>
 </section>
 
 <!-- ─── TESTIMONIALS ─── -->
 <section class="testimonials" id="testimonials">
-  <div class="section-eyebrow">Client Voices</div>
-  <h2 class="section-title">What our <em>partners</em><br>are saying.</h2>
+  <div class="testi-inner">
+    <div class="section-label reveal">Client Voices</div>
+    <h2 class="testi-heading reveal">What <span>Leaders</span><br>Are Saying</h2>
 
-  <div class="testimonials-grid">
-    <div class="testimonial-card reveal">
-      <div class="quote-mark">"</div>
-      <p class="testimonial-text">DeLara didn't just give us a strategy — they gave us the confidence to execute it. Their ability to align our leadership team around a shared direction was transformative.</p>
-      <div class="testimonial-rule"></div>
-      <div class="testimonial-author">Sarah Mitchell</div>
-      <div class="testimonial-role">CEO, Meridian Group</div>
-    </div>
-    <div class="testimonial-card reveal reveal-delay-1">
-      <div class="quote-mark">"</div>
-      <p class="testimonial-text">Working with DeLara felt like having the most capable advisor in the room. They asked better questions than we had, and their recommendations were both bold and grounded.</p>
-      <div class="testimonial-rule"></div>
-      <div class="testimonial-author">James Okafor</div>
-      <div class="testimonial-role">President, Northbridge Capital</div>
-    </div>
-    <div class="testimonial-card reveal reveal-delay-2">
-      <div class="quote-mark">"</div>
-      <p class="testimonial-text">In two years of working together, they've helped us double revenue, restructure our organization, and build a leadership team that can take us to the next level.</p>
-      <div class="testimonial-rule"></div>
-      <div class="testimonial-author">Elena Vasquez</div>
-      <div class="testimonial-role">COO, Apex Ventures</div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">
+          <svg class="testi-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="testi-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="testi-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="testi-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="testi-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-body">"DeLara brought the kind of clarity our leadership team had been searching for. Within two engagements, we had a strategy we could actually execute — and the alignment to back it."</p>
+        <div class="testi-attr">
+          <span class="testi-name">J. Morrison</span>
+          <span class="testi-role">Chief Executive Officer, Regional Healthcare System</span>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" style="transition-delay:0.08s">
+        <div class="testi-stars">
+          <svg class="testi-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="testi-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="testi-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="testi-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="testi-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-body">"What sets DeLara apart is their willingness to say the uncomfortable thing. They told us what we needed to hear, not what we wanted to. That honesty saved us 18 months of misalignment."</p>
+        <div class="testi-attr">
+          <span class="testi-name">A. Reyes</span>
+          <span class="testi-role">President, Financial Services Firm</span>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" style="transition-delay:0.16s">
+        <div class="testi-stars">
+          <svg class="testi-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="testi-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="testi-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="testi-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="testi-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testi-body">"They treated our problems as their own. Rigorous, structured, and intensely practical — DeLara doesn't just advise, they deliver."</p>
+        <div class="testi-attr">
+          <span class="testi-name">C. Okonkwo</span>
+          <span class="testi-role">VP Operations, Manufacturing Group</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ─── CTA ─── -->
-<section class="cta-section" id="contact">
-  <div class="cta-left">
-    <p class="cta-title">Ready to begin<br>the conversation?</p>
-    <p class="cta-sub">Let's explore what's possible for your organization. No obligations — just a candid, valuable discussion.</p>
+<!-- ─── CONTACT ─── -->
+<section class="contact" id="contact">
+  <div class="contact-left">
+    <div class="section-label">Let's Talk</div>
+    <h2 class="contact-heading">
+      Ready to<br>
+      <em>Move</em><br>
+      Forward?
+    </h2>
+    <p class="contact-sub">
+      Every engagement starts with a conversation. Tell us where you are, and we'll help you see where you need to go.
+    </p>
+    <div class="contact-info">
+      <a href="mailto:info@delaraconsulting.com" class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@delaraconsulting.com
+      </a>
+      <a href="tel:+15555550100" class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +1 (555) 555-0100
+      </a>
+    </div>
   </div>
-  <div class="cta-right">
-    <a href="mailto:hello@delaraconsulting.com" class="btn-white">Schedule a Call</a>
-    <a href="mailto:hello@delaraconsulting.com" class="btn-outline">Send a Message</a>
+
+  <div class="contact-right">
+    <form onsubmit="return false;">
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input class="form-input" type="text" placeholder="Full name"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input class="form-input" type="email" placeholder="your@email.com"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Organization</label>
+        <input class="form-input" type="text" placeholder="Company or organization"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">How Can We Help?</label>
+        <textarea class="form-textarea" placeholder="Briefly describe your challenge or goal..."></textarea>
+      </div>
+      <button class="form-submit" type="submit">
+        Send Message
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </form>
   </div>
 </section>
 
 <!-- ─── FOOTER ─── -->
 <footer>
-  <div class="footer-top">
-    <div>
-      <div class="footer-logo">
-        <img src="brand_assests/logo1.png" alt="DeLara Consulting LLC"/>
-      </div>
-      <p class="footer-brand-desc">Partnering with visionary leaders to unlock potential, accelerate growth, and build organizations that endure.</p>
-    </div>
-
-    <div>
-      <div class="footer-col-title">Services</div>
-      <ul class="footer-links">
-        <li><a href="#services">Strategic Planning</a></li>
-        <li><a href="#services">Operational Excellence</a></li>
-        <li><a href="#services">Leadership Development</a></li>
-        <li><a href="#services">Digital Transformation</a></li>
-        <li><a href="#services">Growth Strategy</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <div class="footer-col-title">Company</div>
-      <ul class="footer-links">
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#process">Our Process</a></li>
-        <li><a href="#testimonials">Client Stories</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <div class="footer-col-title">Connect</div>
-      <ul class="footer-links">
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Twitter / X</a></li>
-        <li><a href="mailto:hello@delaraconsulting.com">Email Us</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p class="footer-copy">© 2026 DeLara Consulting, LLC. All rights reserved.</p>
-    <ul class="footer-legal">
-      <li><a href="#">Privacy Policy</a></li>
-      <li><a href="#">Terms of Use</a></li>
-    </ul>
-  </div>
+  <a href="#" class="footer-logo">
+    <img src="brand_assests/Logo2.png" alt="DeLara Consulting LLC"/>
+  </a>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <p class="footer-copy">&copy; 2025 DeLara Consulting, LLC. All rights reserved.</p>
 </footer>
 
 <script>
-const nav = document.getElementById('mainNav');
+// Nav scroll
+const nav = document.getElementById('main-nav');
 window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
+  nav.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
+// Reveal on scroll
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
 reveals.forEach(el => observer.observe(el));
 </script>
 </body>
