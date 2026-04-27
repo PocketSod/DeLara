@@ -916,6 +916,13 @@ footer { background: var(--brown-2); border-top: 1px solid rgba(201,146,42,0.1);
 @keyframes fadeIn { to { opacity: 1; } }
 
 a:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
+
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  nav.scrolled { padding: 12px 20px; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+}
 </style>
 </head>
 <body>
