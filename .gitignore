@@ -1,4 +1,17 @@
 node_modules/
 temporary screenshots/
-test-edge.png
+.claude/
+
 .env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db
+*.log
+
+test-edge.png
+_preview.html
+_view.html
+_sec-colors.html
+_screenshot_tmp.mjs
